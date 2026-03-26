@@ -12,6 +12,39 @@ const logos: { src: string; alt: string; color: "white" | "black" }[] = [
   { src: "/logos/aritzia.png", alt: "Aritzia", color: "black" },
 ];
 
+const services = [
+  {
+    title: "Consultation",
+    description:
+      "We learn your brand, your audience, and the soul of your event — so we can match you with talent that fits, not just fills.",
+  },
+  {
+    title: "Playlist Curation",
+    description:
+      "Custom sonic identities, energy arcs, and set direction tailored to your activation. Not just a playlist — a Sonic Journey.",
+  },
+  {
+    title: "Talent Sourcing",
+    description:
+      "Vetted, professional DJs matched to your brand. Every artist verified for technical mastery and professional etiquette.",
+  },
+  {
+    title: "Event Logistics",
+    description:
+      "Scheduling, contracts, technical riders, equipment, rotations — one point of contact, one invoice, zero friction.",
+  },
+  {
+    title: "Music Direction",
+    description:
+      "On-site quality control, seamless transitions, and crowd-reading in real time. Clean, professional, on-brand from open to close.",
+  },
+  {
+    title: "Equipment Management",
+    description:
+      "End-to-end technical setup, handovers, and on-site QC so your team focuses on the bigger picture.",
+  },
+];
+
 const caseStudies = [
   {
     brand: "Lululemon",
@@ -60,51 +93,34 @@ const caseStudies = [
   },
 ];
 
-const services = [
-  {
-    title: "Talent Sourcing",
-    description:
-      "Vetted, professional DJs matched to your brand. Every artist verified for technical mastery and professional etiquette.",
-  },
-  {
-    title: "Music Direction",
-    description:
-      "Curated sonic identities that evolve with your event. We program a Sonic Journey — not just a playlist.",
-  },
-  {
-    title: "Event Logistics",
-    description:
-      "Full rotation management for multi-day activations. One point of contact. One invoice. Zero friction.",
-  },
-  {
-    title: "Equipment Management",
-    description:
-      "End-to-end technical setup, handovers, and on-site QC so your team focuses on the bigger picture.",
-  },
-];
-
 export default function Home() {
   return (
     <main className="bg-black text-white">
       {/* ─── Nav ─── */}
       <nav className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-          <a href="#" className="text-lg font-bold tracking-tight">
-            Pro Spin
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+          <a href="#">
+            <Image
+              src="/prospin-logo.png"
+              alt="Pro Spin"
+              width={32}
+              height={32}
+              className="h-7 w-7 sm:h-8 sm:w-8"
+            />
           </a>
-          <div className="hidden items-center gap-8 text-sm text-zinc-400 sm:flex">
-            <a href="#work" className="transition-colors hover:text-white">
-              Work
+          <div className="flex items-center gap-6 text-sm text-zinc-400 sm:gap-8">
+            <a href="#how" className="hidden transition-colors hover:text-white sm:block">
+              How We Work
             </a>
-            <a href="#services" className="transition-colors hover:text-white">
-              Services
+            <a href="#work" className="hidden transition-colors hover:text-white sm:block">
+              Success Stories
             </a>
-            <a href="#about" className="transition-colors hover:text-white">
-              About
+            <a href="#how" className="hidden transition-colors hover:text-white sm:block">
+              What We Provide
             </a>
             <a
               href="#contact"
-              className="rounded-full bg-white px-5 py-2 font-semibold text-black transition-colors hover:bg-zinc-300"
+              className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black transition-colors hover:bg-zinc-300 sm:px-5 sm:py-2 sm:text-sm"
             >
               Get In Touch
             </a>
@@ -112,67 +128,50 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* ─── Hero: Problem → Solution ─── */}
-      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-6 pt-20 text-center">
+      {/* ─── Hero ─── */}
+      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-5 pt-16 pb-10 text-center sm:px-6 sm:pt-20">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/30 via-black to-black" />
         <div className="relative z-10 flex max-w-4xl flex-col items-center">
-          <Image
-            src="/prospin-logo.png"
-            alt="Pro Spin"
-            width={140}
-            height={140}
-            className="mb-10 w-20 sm:w-32"
-            priority
-          />
-
-          {/* The Problem */}
-          <p className="mb-6 text-sm font-medium uppercase tracking-[0.25em] text-zinc-600">
-            Premium DJ talent for global brands
+          <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-zinc-500 sm:mb-6 sm:text-sm">
+            The bridge between culture &amp; corporate
           </p>
-          <h1 className="text-3xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
-            Most event DJs play it safe
-            <br />
-            with the same Top 40 playlist.
-            <br />
-            <span className="text-zinc-500">Your audience can tell.</span>
+          <h1 className="text-2xl font-bold leading-snug tracking-tight sm:text-5xl lg:text-6xl">
+            Connecting culture to brands &amp; activations.
           </h1>
 
-          {/* The Solution */}
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-zinc-400 sm:text-lg">
-            <span className="font-semibold text-white">Pro Spin</span> provides
-            DJs who are genuinely tapped into culture — Afrobeats, Latin, House,
-            Hip-Hop, World — and deliver it with the professionalism and polish
-            your brand demands. They read the crowd, match the soul of your
-            event, and keep every set{" "}
-            <span className="text-white">
-              clean, authentic, and on-brand.
-            </span>{" "}
-            Experienced. Premium. No corny corporate DJs. No unvetted risks.
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg">
+            Pro Spin was founded to solve the gap between &ldquo;hiring a
+            DJ&rdquo; and &ldquo;managing a brand experience.&rdquo; Our DJs
+            come from the culture — they know what&apos;s current because they
+            help shape it. But they also understand the stakes of a brand
+            activation, a live sports event, or a week-long retail marathon.
+            They show up prepared, polished, and ready to represent your brand
+            at the highest level.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-6 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
             <a
               href="#contact"
-              className="rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-300"
+              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-300 sm:px-8 sm:py-3.5"
             >
               Get In Touch
             </a>
             <a
               href="#work"
-              className="rounded-full border border-zinc-700 px-8 py-3.5 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white"
+              className="rounded-full border border-zinc-700 px-6 py-3 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white sm:px-8 sm:py-3.5"
             >
-              See Our Work
+              Success Stories
             </a>
           </div>
         </div>
       </section>
 
-      {/* ─── Trusted By (immediately after hero) ─── */}
-      <section className="border-y border-zinc-800/50 bg-zinc-950/50 px-6 py-12 sm:py-14">
-        <p className="mb-8 text-center text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
-          Trusted by the world&apos;s leading athletic &amp; lifestyle brands
+      {/* ─── Trusted By ─── */}
+      <section className="border-y border-zinc-800/50 bg-zinc-950/50 px-4 py-8 sm:px-6 sm:py-14">
+        <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:mb-8 sm:text-sm">
+          Trusted by
         </p>
-        <div className="mx-auto grid max-w-5xl grid-cols-2 items-center gap-8 sm:grid-cols-4 lg:grid-cols-8">
+        <div className="mx-auto grid max-w-5xl grid-cols-4 items-center gap-4 sm:gap-8 lg:grid-cols-8">
           {logos.map((logo) => (
             <div key={logo.alt} className="flex items-center justify-center">
               <Image
@@ -180,7 +179,7 @@ export default function Home() {
                 alt={logo.alt}
                 width={120}
                 height={48}
-                className={`h-8 w-auto opacity-50 transition-opacity hover:opacity-80 sm:h-10 ${
+                className={`h-5 w-auto opacity-50 transition-opacity hover:opacity-80 sm:h-10 ${
                   logo.color === "black" ? "invert" : ""
                 }`}
               />
@@ -189,20 +188,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Case Studies (right after trust) ─── */}
-      <section id="work" className="px-6 py-20 sm:py-28">
+      {/* ─── What We Provide ─── */}
+      <section id="how" className="px-4 py-14 sm:px-6 sm:py-28">
         <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-center text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
-            Recent Successes
+          <p className="mb-3 text-center text-lg text-zinc-400 sm:mb-4 sm:text-2xl">
+            What We Provide
           </p>
-          <h2 className="mb-4 text-center text-3xl font-bold sm:text-4xl">
+          <h2 className="mx-auto mb-8 text-center text-2xl font-bold sm:mb-16 sm:text-4xl">
+            You Focus on the Event. We Handle the Sound.
+          </h2>
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="rounded-xl border border-zinc-800/50 bg-zinc-900/20 p-4 sm:rounded-2xl sm:p-6"
+              >
+                <h3 className="mb-1 text-sm font-semibold sm:mb-2 sm:text-lg">
+                  {service.title}
+                </h3>
+                <p className="text-xs leading-relaxed text-zinc-400 sm:text-sm">
+                  {service.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Success Stories ─── */}
+      <section id="work" className="px-4 py-14 sm:px-6 sm:py-28">
+        <div className="mx-auto max-w-5xl">
+          <p className="mb-3 text-center text-lg text-zinc-400 sm:mb-4 sm:text-2xl">
+            Our Recent Success Stories
+          </p>
+          <h2 className="mx-auto mb-8 text-center text-2xl font-bold sm:mb-16 sm:text-4xl">
             Built for the Grind. Proven at Scale.
           </h2>
-          <p className="mx-auto mb-16 max-w-2xl text-center text-zinc-400">
-            From 84-hour retail marathons to international sports tournaments —
-            we deliver consistency when it matters most.
-          </p>
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-6 sm:gap-10">
             {caseStudies.map((study, i) => (
               <div
                 key={study.brand}
@@ -211,7 +233,7 @@ export default function Home() {
                 } ${i % 2 !== 0 && study.image ? "lg:flex-row-reverse" : ""}`}
               >
                 {study.image && (
-                  <div className="relative h-64 w-full lg:h-auto lg:min-h-[320px] lg:w-1/2">
+                  <div className="relative h-48 w-full sm:h-64 lg:h-auto lg:min-h-[320px] lg:w-1/2">
                     <Image
                       src={study.image}
                       alt={study.brand}
@@ -221,15 +243,17 @@ export default function Home() {
                   </div>
                 )}
                 <div
-                  className={`flex flex-col justify-center p-8 sm:p-10 ${
+                  className={`flex flex-col justify-center p-5 sm:p-10 ${
                     study.image ? "lg:w-1/2" : ""
                   }`}
                 >
-                  <p className="mb-2 text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
+                  <p className="mb-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:mb-2 sm:text-sm">
                     {study.brand}
                   </p>
-                  <h3 className="mb-5 text-2xl font-bold">{study.title}</h3>
-                  <div className="space-y-3 text-sm leading-relaxed text-zinc-400">
+                  <h3 className="mb-3 text-lg font-bold sm:mb-5 sm:text-2xl">
+                    {study.title}
+                  </h3>
+                  <div className="space-y-2 text-xs leading-relaxed text-zinc-400 sm:space-y-3 sm:text-sm">
                     <p>
                       <span className="font-semibold text-zinc-300">
                         Challenge:{" "}
@@ -254,7 +278,7 @@ export default function Home() {
                       href={study.instagram}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="mt-5 inline-flex items-center gap-1 text-sm font-medium text-zinc-400 transition-colors hover:text-white"
+                      className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-zinc-400 transition-colors hover:text-white sm:mt-5 sm:text-sm"
                     >
                       View on Instagram &rarr;
                     </a>
@@ -266,120 +290,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Stats Bar ─── */}
-      <section className="border-y border-zinc-800/50 bg-zinc-950/30 px-6 py-16">
-        <div className="mx-auto grid max-w-4xl gap-8 sm:grid-cols-3">
-          <div className="text-center">
-            <span className="block text-4xl font-bold sm:text-5xl">100%</span>
-            <span className="mt-2 block text-sm text-zinc-500">
-              Family-Friendly Execution
-            </span>
-          </div>
-          <div className="text-center">
-            <span className="block text-4xl font-bold sm:text-5xl">84+</span>
-            <span className="mt-2 block text-sm text-zinc-500">
-              Hours of Continuous Programming
-            </span>
-          </div>
-          <div className="text-center">
-            <span className="block text-4xl font-bold sm:text-5xl">0</span>
-            <span className="mt-2 block text-sm text-zinc-500">
-              Minutes of Dead Air
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Services ─── */}
-      <section id="services" className="px-6 py-20 sm:py-28">
-        <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-center text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
-            What We Do
-          </p>
-          <h2 className="mb-4 text-center text-3xl font-bold sm:text-4xl">
-            Your Turnkey Sound Solution
-          </h2>
-          <p className="mx-auto mb-16 max-w-2xl text-center text-zinc-400">
-            We combine custom-curated playlists with premium live DJ talent.
-            One point of contact. One invoice. From open to close.
-          </p>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {services.map((service, i) => (
-              <div
-                key={service.title}
-                className="rounded-2xl border border-zinc-800/50 bg-zinc-900/20 p-6"
-              >
-                <span className="mb-4 block text-2xl font-bold text-zinc-700">
-                  0{i + 1}
-                </span>
-                <h3 className="mb-2 text-lg font-semibold">{service.title}</h3>
-                <p className="text-sm leading-relaxed text-zinc-400">
-                  {service.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── About ─── */}
-      <section
-        id="about"
-        className="border-t border-zinc-800/50 bg-zinc-950/30 px-6 py-20 sm:py-28"
-      >
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
-            About Pro Spin
-          </p>
-          <h2 className="mb-6 text-3xl font-bold sm:text-4xl">
-            The Bridge Between Culture &amp; Corporate
-          </h2>
-          <p className="mb-6 text-base leading-relaxed text-zinc-400">
-            Pro Spin was founded to solve the gap between &ldquo;hiring a
-            DJ&rdquo; and &ldquo;managing a brand experience.&rdquo; We
-            understand that for partners, reliability and admin-simplicity are
-            just as important as the music.
-          </p>
-          <p className="mb-6 text-base leading-relaxed text-zinc-400">
-            Our DJs come from the culture — they know what&apos;s current because
-            they help shape it. But they also understand the stakes of a brand
-            activation, a live sports event, or a week-long retail marathon. They
-            show up prepared, polished, and ready to represent your brand at the
-            highest level.
-          </p>
-          <p className="text-base leading-relaxed text-zinc-400">
-            Whether it&apos;s a 5v5 soccer tournament, a global tennis open, or
-            a 28-day international festival — we deliver the talent and the
-            systems to make it successful.
-          </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-zinc-500">
-            <span>Vancouver, BC</span>
-            <span>&middot;</span>
-            <span>Global Execution</span>
-            <span>&middot;</span>
-            <span>Sport &middot; Retail &middot; Culture</span>
-          </div>
-        </div>
-      </section>
-
       {/* ─── Contact ─── */}
-      <section id="contact" className="border-t border-zinc-800/50 px-6 py-20 sm:py-28">
+      <section
+        id="contact"
+        className="border-t border-zinc-800/50 px-4 py-14 sm:px-6 sm:py-28"
+      >
         <div className="mx-auto max-w-xl text-center">
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
+          <p className="mb-3 text-lg text-zinc-400 sm:mb-4 sm:text-2xl">
             Let&apos;s Work Together
           </p>
-          <h2 className="mb-4 text-3xl font-bold sm:text-4xl">
-            Let Us Handle the Sound.
-            <br />
-            You Focus on the Event.
+          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl">
+            One Point of Contact. One Invoice. Zero Risk.
           </h2>
-          <p className="mb-8 text-zinc-400">
-            Whether it&apos;s a one-day activation or a 28-day global festival —
-            one point of contact, one invoice, zero risk.
-          </p>
           <a
             href="mailto:hello@prospin.agency"
-            className="inline-block rounded-full bg-white px-8 py-3.5 text-sm font-semibold text-black transition-colors hover:bg-zinc-300"
+            className="inline-block rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-300 sm:px-8 sm:py-3.5"
           >
             hello@prospin.agency
           </a>
@@ -387,13 +312,21 @@ export default function Home() {
       </section>
 
       {/* ─── Footer ─── */}
-      <footer className="border-t border-zinc-800/50 px-6 py-10">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 sm:flex-row">
-          <span className="text-sm font-semibold">Pro Spin</span>
-          <span className="text-xs text-zinc-600">
+      <footer className="border-t border-zinc-800/50 px-4 py-8 sm:px-6 sm:py-10">
+        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 sm:flex-row sm:gap-4">
+          <Image
+            src="/prospin-logo.png"
+            alt="Pro Spin"
+            width={28}
+            height={28}
+            className="h-6 w-6 sm:h-7 sm:w-7"
+          />
+          <span className="text-[10px] text-zinc-600 sm:text-xs">
             &copy; {new Date().getFullYear()} Pro Spin. All rights reserved.
           </span>
-          <span className="text-xs text-zinc-500">Vancouver, BC</span>
+          <span className="text-[10px] text-zinc-500 sm:text-xs">
+            Vancouver, BC
+          </span>
         </div>
       </footer>
     </main>
