@@ -1,185 +1,190 @@
-import Image from "next/image";
+"use client";
 
-// color: "white" = already white on transparent, "black" = black on transparent/white bg
+import Image from "next/image";
+import { useEffect, useRef } from "react";
+
+/*
+ * PRO SPIN AGENCY — "The High-Performance Machine" (elevated)
+ * Palette: Pure Black #000 · Pure White #FFF · Electric Volt #CCFF00
+ * Typography: Inter (body/mono labels) + Playfair Display (serif headlines)
+ * Vibe: Sporty + Fun + Professional + Worldly
+ */
+
 const logos: { src: string; alt: string; color: "white" | "black" }[] = [
   { src: "/logos/nike.png", alt: "Nike", color: "white" },
   { src: "/logos/adidas.png", alt: "Adidas", color: "black" },
   { src: "/logos/puma.png", alt: "Puma", color: "black" },
   { src: "/logos/arcteryx.png", alt: "Arc'teryx", color: "black" },
   { src: "/logos/jd-sports.png", alt: "JD Sports", color: "black" },
-  { src: "/logos/lululemon-icon.png", alt: "Lululemon", color: "black" },
-  { src: "/logos/red-bull.png", alt: "Red Bull", color: "white" },
+  { src: "/logos/lululemon.png", alt: "Lululemon", color: "white" },
   { src: "/logos/aritzia.png", alt: "Aritzia", color: "black" },
-];
-
-const services = [
-  {
-    title: "Consultation",
-    description:
-      "We learn your brand, your audience, and the soul of your event — so we can match you with talent that fits, not just fills.",
-  },
-  {
-    title: "Playlist Curation",
-    description:
-      "Custom sonic identities, energy arcs, and set direction tailored to your activation. Not just a playlist — a Sonic Journey.",
-  },
-  {
-    title: "Talent Sourcing",
-    description:
-      "Vetted, professional DJs matched to your brand. Every artist verified for technical mastery and professional etiquette.",
-  },
-  {
-    title: "Event Logistics",
-    description:
-      "Scheduling, contracts, technical riders, equipment, rotations — one point of contact, one invoice, zero friction.",
-  },
-  {
-    title: "Music Direction",
-    description:
-      "On-site quality control, seamless transitions, and crowd-reading in real time. Clean, professional, on-brand from open to close.",
-  },
-  {
-    title: "Equipment Management",
-    description:
-      "End-to-end technical setup, handovers, and on-site QC so your team focuses on the bigger picture.",
-  },
+  { src: "/logos/red-bull.png", alt: "Red Bull", color: "white" },
+  { src: "/logos/prophecy.png", alt: "Prophecy", color: "white" },
+  { src: "/logos/chambar.png", alt: "Chambar", color: "white" },
+  { src: "/logos/ted.png", alt: "TED", color: "white" },
+  { src: "/logos/loveland.png", alt: "Nemesis Coffee", color: "white" },
+  { src: "/logos/meo.png", alt: "MEO Chinatown", color: "white" },
+  { src: "/logos/the-kent.png", alt: "The Kent", color: "white" },
+  { src: "/logos/city-of-vancouver.png", alt: "City of Vancouver", color: "white" },
 ];
 
 const caseStudies = [
   {
     brand: "Lululemon",
     title: "Global Curation at BNP Paribas Open",
-    challenge:
-      "Creating a musical identity for the Lululemon Combine in California that resonated with an international elite athletic crowd.",
-    solution:
-      "Curated the full sonic identity and playlists, bridging Lululemon's Vancouver roots with the global stage of Indian Wells.",
+    stat: "1 Sonic Identity",
     result:
-      "A sophisticated, high-performance atmosphere that kept athletes and spectators engaged throughout the tournament.",
+      "Full sonic identity for the Lululemon Combine — bridging Vancouver roots with the global stage of Indian Wells.",
     image: "/case-studies/lululemon.png",
-    instagram: "https://www.instagram.com/p/DV1mYyTiRgU/",
   },
   {
     brand: "Red Bull",
     title: "Four 2 Score — BC Tournament",
-    challenge:
-      "Delivering high-intensity, crowd-reactive energy for Red Bull's signature street soccer tournament in BC.",
-    solution:
-      "Stadium-energy sets, halftime hype, and post-match celebrations. 100% family-friendly, zero dead air.",
+    stat: "0 Dead Air",
     result:
-      "Reliable, brand-standard execution that maintained momentum and crowd energy throughout the competition.",
+      "Stadium-energy sets, halftime hype, and post-match celebrations. 100% family-friendly, zero dead air.",
     image: "/case-studies/redbull-four2score-action.png",
   },
   {
     brand: "Aritzia",
     title: "84+ Hours of Seamless Sound",
-    challenge:
-      "Programming 84+ hours of continuous, brand-aligned music for the massive Aritzia Warehouse Sale.",
-    solution:
-      "Managed the entire DJ rotation — 7 days, 12 hours daily. Zero silence between sets. A vibe that evolved from morning shopping flow to peak afternoon energy.",
+    stat: "84+ Hrs",
     result:
-      "100% uptime. Zero Sonic Fatigue. Zero admin friction for the production team.",
-    image: null,
+      "7 days. 12 hours daily. Zero silence between sets. Zero admin friction for the production team.",
+    image: "/aritzia-warehouse.png",
   },
   {
     brand: "Nike / Adidas / Puma / JD Sports",
     title: "The Big Four Sport Activations",
-    challenge:
-      "Delivering specific, trend-forward energy for the world's leading athletic brands across launches and activations.",
-    solution:
-      "Specialized DJ services for product launches and store activations. Street-to-Sport crossover — current, family-friendly, and high-energy.",
+    stat: "4 Brands",
     result:
-      "Reliable, brand-standard execution that maintained momentum and shopper retention for peak retail hours.",
+      "Product launches, store activations, and street-to-sport crossover. Brand-standard execution at scale.",
     image: null,
   },
 ];
 
 export default function Home() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const v = videoRef.current;
+    if (v) {
+      v.muted = true;
+      v.play().catch(() => {});
+    }
+  }, []);
+
   return (
     <main className="bg-black text-white">
       {/* ─── Nav ─── */}
-      <nav className="fixed top-0 z-50 w-full border-b border-white/5 bg-black/80 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
-          <a href="#">
+      <nav className="fixed top-0 z-50 w-full border-b border-[#333] bg-black/90 backdrop-blur-sm">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 sm:py-4">
+          <a href="#" className="flex items-center gap-3">
             <Image
               src="/prospin-logo.png"
-              alt="Pro Spin"
+              alt="Pro Spin Agency"
               width={32}
               height={32}
               className="h-7 w-7 sm:h-8 sm:w-8"
             />
+            <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+              Pro Spin Agency
+            </span>
           </a>
-          <div className="flex items-center gap-6 text-sm text-zinc-400 sm:gap-8">
-            <a href="#how" className="hidden transition-colors hover:text-white sm:block">
-              How We Work
+          <div className="flex items-center gap-5 sm:gap-8">
+            <a
+              href="#services"
+              className="hidden font-mono text-xs uppercase tracking-wider text-zinc-500 transition-colors hover:text-white sm:block"
+            >
+              Services
             </a>
-            <a href="#work" className="hidden transition-colors hover:text-white sm:block">
-              Success Stories
-            </a>
-            <a href="#how" className="hidden transition-colors hover:text-white sm:block">
-              What We Provide
+            <a
+              href="#work"
+              className="hidden font-mono text-xs uppercase tracking-wider text-zinc-500 transition-colors hover:text-white sm:block"
+            >
+              Work
             </a>
             <a
               href="#contact"
-              className="rounded-full bg-white px-4 py-1.5 text-xs font-semibold text-black transition-colors hover:bg-zinc-300 sm:px-5 sm:py-2 sm:text-sm"
+              className="bg-[#CCFF00] px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-black transition-opacity hover:opacity-80 sm:px-5 sm:py-2"
             >
-              Get In Touch
+              Contact
             </a>
           </div>
         </div>
       </nav>
 
-      {/* ─── Hero ─── */}
-      <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-5 pt-16 pb-10 text-center sm:px-6 sm:pt-20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-zinc-800/30 via-black to-black" />
-        <div className="relative z-10 flex max-w-4xl flex-col items-center">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.25em] text-zinc-500 sm:mb-6 sm:text-sm">
-            The bridge between culture &amp; corporate
+      {/* ─── Hero with Video Background ─── */}
+      <section className="relative flex min-h-svh flex-col justify-end overflow-hidden border-b border-[#333] px-5 pt-20 pb-10 sm:px-8 sm:pb-16">
+        {/* Video background */}
+        {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-60"
+        >
+          <source src="/hero-bg.mp4" type="video/mp4" />
+        </video>
+        {/* Gradient overlay — solid at bottom near text, fading to transparent at top to reveal video */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+
+        <div className="relative z-10 mx-auto w-full max-w-7xl">
+          <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-[#CCFF00] sm:mb-6 sm:text-xs">
+            Vancouver &middot; Indian Wells &middot; Toronto &middot; Los Angeles &middot; Worldwide
           </p>
-          <h1 className="text-2xl font-bold leading-snug tracking-tight sm:text-5xl lg:text-6xl">
-            Connecting culture to brands &amp; activations.
+          <h1 className="max-w-6xl text-4xl font-black uppercase leading-[0.9] tracking-tighter sm:text-7xl lg:text-9xl">
+            Pro Spin{" "}
+            <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
+              Agency
+            </span>
           </h1>
-
-          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:mt-8 sm:text-lg">
-            Pro Spin was founded to solve the gap between &ldquo;hiring a
-            DJ&rdquo; and &ldquo;managing a brand experience.&rdquo; Our DJs
-            come from the culture — they know what&apos;s current because they
-            help shape it. But they also understand the stakes of a brand
-            activation, a live sports event, or a week-long retail marathon.
-            They show up prepared, polished, and ready to represent your brand
-            at the highest level.
+          <p className="mt-4 max-w-xl text-lg text-zinc-300 sm:mt-6 sm:text-2xl">
+            Connecting corporate with{" "}
+            <span className="font-serif italic text-[#CCFF00]">culture.</span>
           </p>
-
-          <div className="mt-6 flex w-full flex-col gap-3 sm:mt-10 sm:w-auto sm:flex-row sm:gap-4">
-            <a
-              href="#contact"
-              className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-300 sm:px-8 sm:py-3.5"
-            >
-              Get In Touch
-            </a>
-            <a
-              href="#work"
-              className="rounded-full border border-zinc-700 px-6 py-3 text-sm font-semibold text-zinc-300 transition-colors hover:border-zinc-500 hover:text-white sm:px-8 sm:py-3.5"
-            >
-              Success Stories
-            </a>
+          <div className="mt-8 flex flex-col gap-4 sm:mt-12 sm:flex-row sm:items-end sm:justify-between">
+            <p className="max-w-md text-sm leading-relaxed text-zinc-400 sm:text-base">
+              Premium DJ talent and music direction for the world&apos;s most
+              iconic brands. We bring the energy brands can&apos;t hire off a
+              playlist — and the professionalism they can&apos;t risk without.
+            </p>
+            <div className="flex gap-3">
+              <a
+                href="#contact"
+                className="bg-[#CCFF00] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-black transition-opacity hover:opacity-80 sm:px-8"
+              >
+                Get Started
+              </a>
+              <a
+                href="#work"
+                className="border border-[#333] px-6 py-3 font-mono text-xs uppercase tracking-wider text-zinc-400 transition-colors hover:border-white hover:text-white sm:px-8"
+              >
+                See Work
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Trusted By ─── */}
-      <section className="border-y border-zinc-800/50 bg-zinc-950/50 px-4 py-8 sm:px-6 sm:py-14">
-        <p className="mb-6 text-center text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:mb-8 sm:text-sm">
-          Trusted by
+      {/* ─── Client Logos ─── */}
+      <section className="border-b border-[#333] px-5 py-10 sm:px-8 sm:py-14">
+        <p className="mb-8 text-center font-mono text-xs uppercase tracking-widest text-zinc-400 sm:mb-10 sm:text-sm">
+          Trusted by global and local brands
         </p>
-        <div className="mx-auto grid max-w-5xl grid-cols-4 items-center gap-4 sm:gap-8 lg:grid-cols-8">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center justify-items-center gap-y-8 gap-x-10 sm:grid-cols-5 sm:gap-y-10 sm:gap-x-20">
           {logos.map((logo) => (
-            <div key={logo.alt} className="flex items-center justify-center">
+            <div key={logo.alt} className={`flex w-full items-center justify-center ${logo.alt === "Prophecy" ? "h-14 sm:h-20" : "h-10 sm:h-12"}`}>
               <Image
                 src={logo.src}
                 alt={logo.alt}
                 width={120}
                 height={48}
-                className={`h-5 w-auto opacity-50 transition-opacity hover:opacity-80 sm:h-10 ${
+                unoptimized
+                className={`max-h-full max-w-full object-contain opacity-80 transition-opacity hover:opacity-100 ${
                   logo.color === "black" ? "invert" : ""
                 }`}
               />
@@ -188,26 +193,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── What We Provide ─── */}
-      <section id="how" className="px-4 py-14 sm:px-6 sm:py-28">
-        <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-center text-lg text-zinc-400 sm:mb-4 sm:text-2xl">
-            What We Provide
-          </p>
-          <h2 className="mx-auto mb-8 text-center text-2xl font-bold sm:mb-16 sm:text-4xl">
-            You Focus on the Event. We Handle the Sound.
-          </h2>
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-3">
-            {services.map((service) => (
-              <div
-                key={service.title}
-                className="rounded-xl border border-zinc-800/50 bg-zinc-900/20 p-4 sm:rounded-2xl sm:p-6"
-              >
-                <h3 className="mb-1 text-sm font-semibold sm:mb-2 sm:text-lg">
-                  {service.title}
+      {/* ─── Why Pro Spin ─── */}
+      <section className="border-b border-[#333] px-5 py-14 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 sm:mb-16">
+            <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+              Why Us
+            </span>
+            <h2 className="max-w-3xl text-2xl font-black uppercase tracking-tight sm:text-4xl lg:text-5xl">
+              One partner.{" "}
+              <span className="font-serif italic font-normal normal-case">
+                Zero risk.
+              </span>
+            </h2>
+          </div>
+          <div className="grid gap-8 sm:grid-cols-3">
+            {[
+              [
+                "Culturally Fluent",
+                "Our DJs shape the culture — they don't follow it. From hip-hop to house, they read the room because they built the room.",
+              ],
+              [
+                "Operationally Bulletproof",
+                "One invoice. One point of contact. Contracts, riders, scheduling, rotations, and equipment — all handled.",
+              ],
+              [
+                "Brand-Safe, Always",
+                "Every DJ is vetted for professionalism, brand etiquette, and technical mastery. Your reputation is non-negotiable.",
+              ],
+            ].map(([title, desc]) => (
+              <div key={title} className="border-t border-[#333] pt-6">
+                <h3 className="mb-3 text-base font-bold uppercase tracking-wide sm:text-lg">
+                  {title}
                 </h3>
-                <p className="text-xs leading-relaxed text-zinc-400 sm:text-sm">
-                  {service.description}
+                <p className="text-sm leading-relaxed text-zinc-400">
+                  {desc}
                 </p>
               </div>
             ))}
@@ -215,74 +235,131 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Success Stories ─── */}
-      <section id="work" className="px-4 py-14 sm:px-6 sm:py-28">
-        <div className="mx-auto max-w-5xl">
-          <p className="mb-3 text-center text-lg text-zinc-400 sm:mb-4 sm:text-2xl">
-            Our Recent Success Stories
-          </p>
-          <h2 className="mx-auto mb-8 text-center text-2xl font-bold sm:mb-16 sm:text-4xl">
-            Built for the Grind. Proven at Scale.
-          </h2>
-          <div className="flex flex-col gap-6 sm:gap-10">
-            {caseStudies.map((study, i) => (
+      {/* ─── Services Grid ─── */}
+      <section
+        id="services"
+        className="border-b border-[#333] px-5 py-14 sm:px-8 sm:py-24"
+      >
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex items-baseline justify-between sm:mb-16">
+            <div>
+              <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+                What We Do
+              </span>
+              <h2 className="text-2xl font-black uppercase tracking-tight sm:text-4xl">
+                <span className="font-serif italic font-normal normal-case">
+                  Full-service{" "}
+                </span>
+                Sound
+              </h2>
+            </div>
+            <span className="font-mono text-xs text-zinc-600">06 ITEMS</span>
+          </div>
+          <div className="grid grid-cols-1 gap-px border border-[#333] bg-[#333] sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              [
+                "01",
+                "Consultation",
+                "Brand alignment, audience profiling, and event strategy.",
+              ],
+              [
+                "02",
+                "Playlist Curation",
+                "Custom sonic identities and energy arcs for your activation.",
+              ],
+              [
+                "03",
+                "Talent Sourcing",
+                "Vetted professionals verified for technical mastery and etiquette.",
+              ],
+              [
+                "04",
+                "Event Logistics",
+                "Scheduling, contracts, riders, rotations — one invoice, zero friction.",
+              ],
+              [
+                "05",
+                "Music Direction",
+                "On-site QC, seamless transitions, crowd-reading in real time.",
+              ],
+              [
+                "06",
+                "Equipment Mgmt",
+                "End-to-end technical setup, handovers, and on-site quality control.",
+              ],
+            ].map(([num, title, desc]) => (
+              <div key={num} className="bg-black p-5 sm:p-8">
+                <span className="mb-3 block font-mono text-xs text-[#CCFF00] sm:mb-4">
+                  {num}
+                </span>
+                <h3 className="mb-2 text-sm font-bold uppercase tracking-wide sm:text-base">
+                  {title}
+                </h3>
+                <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
+                  {desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Case Studies ─── */}
+      <section id="work" className="px-5 py-14 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex items-baseline justify-between sm:mb-16">
+            <div>
+              <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+                Portfolio
+              </span>
+              <h2 className="text-2xl font-black uppercase tracking-tight sm:text-4xl">
+                <span className="font-serif italic font-normal normal-case">
+                  Selected{" "}
+                </span>
+                Work
+              </h2>
+            </div>
+            <span className="font-mono text-xs text-zinc-600">
+              {caseStudies.length} PROJECTS
+            </span>
+          </div>
+          <div className="space-y-6 sm:space-y-8">
+            {caseStudies.map((study) => (
               <div
                 key={study.brand}
-                className={`flex flex-col overflow-hidden rounded-2xl border border-zinc-800/50 bg-zinc-950/50 ${
-                  study.image ? "lg:flex-row" : ""
-                } ${i % 2 !== 0 && study.image ? "lg:flex-row-reverse" : ""}`}
+                className="border border-[#333] bg-zinc-950"
               >
-                {study.image && (
-                  <div className="relative h-48 w-full sm:h-64 lg:h-auto lg:min-h-[320px] lg:w-1/2">
-                    <Image
-                      src={study.image}
-                      alt={study.brand}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                )}
-                <div
-                  className={`flex flex-col justify-center p-5 sm:p-10 ${
-                    study.image ? "lg:w-1/2" : ""
-                  }`}
-                >
-                  <p className="mb-1 text-xs font-medium uppercase tracking-[0.2em] text-zinc-500 sm:mb-2 sm:text-sm">
-                    {study.brand}
-                  </p>
-                  <h3 className="mb-3 text-lg font-bold sm:mb-5 sm:text-2xl">
-                    {study.title}
-                  </h3>
-                  <div className="space-y-2 text-xs leading-relaxed text-zinc-400 sm:space-y-3 sm:text-sm">
-                    <p>
-                      <span className="font-semibold text-zinc-300">
-                        Challenge:{" "}
+                <div className={study.image ? "lg:flex" : ""}>
+                  {study.image && (
+                    <div className="relative h-48 w-full sm:h-64 lg:h-auto lg:min-h-[300px] lg:w-1/2">
+                      <Image
+                        src={study.image}
+                        alt={study.brand}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                  )}
+                  <div
+                    className={`flex flex-col justify-center p-5 sm:p-8 ${
+                      study.image ? "lg:w-1/2" : ""
+                    }`}
+                  >
+                    <div className="mb-3 flex items-baseline justify-between sm:mb-4">
+                      <span className="font-mono text-xs uppercase tracking-wider text-zinc-600">
+                        {study.brand}
                       </span>
-                      {study.challenge}
-                    </p>
-                    <p>
-                      <span className="font-semibold text-zinc-300">
-                        Solution:{" "}
+                      <span className="font-mono text-lg font-bold text-[#CCFF00] sm:text-2xl">
+                        {study.stat}
                       </span>
-                      {study.solution}
-                    </p>
-                    <p>
-                      <span className="font-semibold text-zinc-300">
-                        Result:{" "}
-                      </span>
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold uppercase tracking-tight sm:mb-3 sm:text-xl">
+                      {study.title}
+                    </h3>
+                    <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
                       {study.result}
                     </p>
                   </div>
-                  {study.instagram && (
-                    <a
-                      href={study.instagram}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-zinc-400 transition-colors hover:text-white sm:mt-5 sm:text-sm"
-                    >
-                      View on Instagram &rarr;
-                    </a>
-                  )}
                 </div>
               </div>
             ))}
@@ -290,42 +367,70 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── Testimonial / Social Proof ─── */}
+      <section className="border-t border-[#333] px-5 py-14 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-4xl text-center">
+          <span className="mb-6 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+            Client Feedback
+          </span>
+          <blockquote className="font-serif text-xl italic leading-relaxed text-zinc-200 sm:text-3xl lg:text-4xl">
+            &ldquo;Pro Spin doesn&apos;t just show up with DJs — they show up
+            with a plan. That&apos;s the difference.&rdquo;
+          </blockquote>
+          <p className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-600">
+            — Brand Activation Lead, Global Sportswear Company
+          </p>
+        </div>
+      </section>
+
       {/* ─── Contact ─── */}
       <section
         id="contact"
-        className="border-t border-zinc-800/50 px-4 py-14 sm:px-6 sm:py-28"
+        className="border-t border-[#333] px-5 py-14 sm:px-8 sm:py-24"
       >
-        <div className="mx-auto max-w-xl text-center">
-          <p className="mb-3 text-lg text-zinc-400 sm:mb-4 sm:text-2xl">
-            Let&apos;s Work Together
-          </p>
-          <h2 className="mb-6 text-2xl font-bold sm:mb-8 sm:text-4xl">
-            One Point of Contact. One Invoice. Zero Risk.
+        <div className="mx-auto max-w-7xl text-center">
+          <span className="mb-4 block font-mono text-xs text-[#CCFF00]">
+            READY?
+          </span>
+          <h2 className="mb-4 text-3xl font-black uppercase tracking-tight sm:mb-6 sm:text-5xl lg:text-6xl">
+            Let&apos;s{" "}
+            <span className="font-serif italic font-normal normal-case">
+              build
+            </span>{" "}
+            something
           </h2>
+          <p className="mb-8 text-sm text-zinc-500 sm:mb-10 sm:text-base">
+            One point of contact. One invoice. Zero risk.
+          </p>
           <a
-            href="mailto:hello@prospin.agency"
-            className="inline-block rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-zinc-300 sm:px-8 sm:py-3.5"
+            href="mailto:team@prospin.agency"
+            className="inline-block bg-[#CCFF00] px-8 py-3 font-mono text-sm font-bold uppercase tracking-wider text-black transition-opacity hover:opacity-80 sm:px-10 sm:py-4"
           >
-            hello@prospin.agency
+            Get In Touch
           </a>
         </div>
       </section>
 
       {/* ─── Footer ─── */}
-      <footer className="border-t border-zinc-800/50 px-4 py-8 sm:px-6 sm:py-10">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-3 sm:flex-row sm:gap-4">
-          <Image
-            src="/prospin-logo.png"
-            alt="Pro Spin"
-            width={28}
-            height={28}
-            className="h-6 w-6 sm:h-7 sm:w-7"
-          />
-          <span className="text-[10px] text-zinc-600 sm:text-xs">
-            &copy; {new Date().getFullYear()} Pro Spin. All rights reserved.
+      <footer className="border-t border-[#333] px-5 py-6 sm:px-8 sm:py-8">
+        <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 sm:flex-row">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/prospin-logo.png"
+              alt="Pro Spin Agency"
+              width={24}
+              height={24}
+              className="h-5 w-5"
+            />
+            <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+              Pro Spin Agency
+            </span>
+          </div>
+          <span className="font-mono text-[10px] text-zinc-700">
+            &copy; {new Date().getFullYear()} PRO SPIN AGENCY
           </span>
-          <span className="text-[10px] text-zinc-500 sm:text-xs">
-            Vancouver, BC
+          <span className="font-mono text-[10px] text-zinc-700">
+            VANCOUVER, BC &middot; WORLDWIDE
           </span>
         </div>
       </footer>
