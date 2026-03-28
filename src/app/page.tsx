@@ -30,49 +30,62 @@ const logos: { src: string; alt: string; color: "white" | "black"; mobileClass?:
 
 const caseStudies = [
   {
+    brand: "Aritzia",
+    title: "84+ Hours of Seamless Sound",
+    subtitle: "Full DJ rotation management across a 7-day, 84-hour warehouse sale",
+    stat: "84+ Hrs",
+    result:
+      "Zero silence between sets. Zero admin friction for the production team. We managed full DJ rotations across a 7-day warehouse sale — 12 hours of continuous sound each day with clean switchovers and zero downtime.",
+    images: ["/aritzia-warehouse.png"],
+    logo: "/logos/aritzia.png",
+    tags: ["Retail", "Marathon Event", "DJ Rotation"],
+  },
+  {
     brand: "Lululemon",
-    title: "Global Curation at BNP Paribas Open",
+    title: "Sonic Identity at BNP Paribas Open",
+    subtitle: "Built a complete sonic identity for the Lululemon Combine at Indian Wells",
     stat: "1 Sonic Identity",
     result:
-      "Full sonic identity for the Lululemon Combine — bridging Vancouver roots with the global stage of Indian Wells.",
-    image: "/case-studies/lululemon.png",
-    logos: ["/logos/lululemon.png"],
+      "Built a complete sonic identity for the Lululemon Combine — bridging Vancouver roots with the global stage of Indian Wells. Curated sound that matched the athletic intensity and wellness ethos of the brand across multiple activation zones.",
+    images: ["/case-studies/lululemon.png"],
+    logo: "/logos/lululemon.png",
+    tags: ["Global", "Brand Activation", "Sonic Identity"],
   },
   {
     brand: "Red Bull",
     title: "Four 2 Score — BC Tournament",
+    subtitle: "Kept the crowd engaged through every match, halftime, and ceremony",
     stat: "0 Dead Air",
     result:
-      "Stadium-energy sets, halftime hype, and post-match celebrations. 100% family-friendly, zero dead air.",
-    image: "/case-studies/redbull-four2score.png",
-    logos: ["/logos/red-bull.png"],
-  },
-  {
-    brand: "Aritzia",
-    title: "84+ Hours of Seamless Sound",
-    stat: "84+ Hrs",
-    result:
-      "7 days. 12 hours daily. Zero silence between sets. Zero admin friction for the production team.",
-    image: "/aritzia-warehouse.png",
-    logos: ["/logos/aritzia.png"],
+      "Stadium-energy sets, halftime hype, and post-match celebrations. 100% family-friendly, zero dead air. We kept the crowd engaged through every whistle, timeout, and trophy ceremony.",
+    images: [
+      "/case-studies/redbull-four2score.png",
+      "/case-studies/redbull-four2score-action.png",
+    ],
+    logo: "/logos/red-bull.png",
+    tags: ["Sporting Event", "Family-Friendly", "Live Energy"],
   },
   {
     brand: "Nike / Adidas / Puma / JD Sports",
     title: "The Big Four Sport Activations",
+    subtitle: "Sound curation for product launches and store activations across four major brands",
     stat: "4 Brands",
     result:
-      "Product launches, store activations, and street-to-sport crossover. Brand-standard execution at scale.",
-    image: "/case-studies/big-four-sports.png",
+      "Product launches, store activations, and street-to-sport crossover. Brand-standard execution at scale across four of the biggest names in sportswear — each with unique sonic requirements and brand guidelines.",
+    images: ["/case-studies/big-four-sports.png"],
     logos: ["/logos/nike.png", "/logos/adidas.png", "/logos/puma.png", "/logos/jd-sports.png"],
+    tags: ["Retail", "Brand Launch", "Multi-Brand"],
   },
   {
     brand: "Restaurantour",
-    title: "A Curated Lounge Experience",
+    title: "A Curated Lounge Crawl",
+    subtitle: "Curated sound and live talent across Vancouver's top three lounges for 3 months",
     stat: "3 Months",
     result:
-      "A 3-month dining and lounge crawl across MEO, Prophecy Bar, and Chambar — Vancouver's most sought-after lounges. Curated lounge music, Afro house, elevated sounds, and world music for a discerning audience. Live instrumentation paired with 4 DJs performing as groups and solo sets.",
-    image: "/case-studies/restaurantour.avif",
+      "A 3-month dining and lounge crawl across Vancouver's most sought-after venues. Curated lounge music, Afro house, elevated sounds, and world music for a discerning audience. Live instrumentation paired with 4 DJs performing as groups and solo sets.",
+    images: ["/case-studies/restaurantour.avif"],
     logos: ["/logos/meo.png", "/logos/prophecy.png", "/logos/chambar.png"],
+    tags: ["Hospitality", "Live Music", "Lounge"],
   },
 ];
 
@@ -358,13 +371,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Case Studies ─── */}
+      {/* ─── Portfolio ─── */}
       <section id="work" className="px-5 py-14 sm:px-8 sm:py-24">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex items-baseline justify-between sm:mb-16">
             <div>
               <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
-                Portfolio
+                Case Studies
               </span>
               <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl">
                 <span className="font-serif italic font-normal normal-case text-4xl sm:text-6xl">
@@ -377,57 +390,79 @@ export default function Home() {
               {caseStudies.length} PROJECTS
             </span>
           </div>
-          <div className="space-y-6 sm:space-y-8">
-            {caseStudies.map((study) => (
+          <div className="space-y-8 sm:space-y-10">
+            {caseStudies.map((study, i) => (
               <div
                 key={study.brand}
-                className="border border-[#333] bg-zinc-950"
+                className="overflow-hidden rounded-2xl border border-[#333] bg-zinc-950"
               >
-                <div className={study.image ? "lg:flex" : ""}>
-                  {study.image && (
-                    <div className="relative h-48 w-full sm:h-64 lg:h-auto lg:min-h-[300px] lg:w-1/2">
-                      <Image
-                        src={study.image}
-                        alt={study.brand}
-                        fill
-                        className="object-cover"
-                      />
-                    </div>
-                  )}
-                  <div
-                    className={`flex flex-col justify-center p-5 sm:p-8 ${
-                      study.image ? "lg:w-1/2" : ""
-                    }`}
-                  >
-                    <div className="mb-3 flex items-baseline justify-between sm:mb-4">
-                      <span className="font-mono text-xs uppercase tracking-wider text-zinc-600">
-                        {study.brand}
-                      </span>
-                      <span className="font-mono text-lg font-bold text-[#CCFF00] sm:text-2xl">
-                        {study.stat}
-                      </span>
-                    </div>
-                    <h3 className="mb-2 text-lg font-bold uppercase tracking-tight sm:mb-3 sm:text-xl">
-                      {study.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
-                      {study.result}
-                    </p>
-                    {study.logos && study.logos.length > 0 && (
-                      <div className="mt-4 flex items-center gap-4 sm:mt-6">
-                        {study.logos.map((logo: string) => (
+                {/* Card layout — alternates direction on desktop */}
+                <div className={`lg:flex ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+                  {/* Image(s) side */}
+                  <div className="relative lg:w-1/2">
+                    {/* Single or multi-image grid */}
+                    {study.images.length > 1 ? (
+                      <div className="grid h-48 grid-cols-2 gap-0.5 sm:h-72 lg:h-full lg:min-h-[360px]">
+                        {study.images.map((img: string, j: number) => (
+                          <div key={img} className={`relative ${j === 0 ? "col-span-2 sm:col-span-1" : ""}`}>
+                            <Image src={img} alt={`${study.brand} ${j + 1}`} fill className="object-cover" />
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="relative h-48 sm:h-72 lg:h-full lg:min-h-[360px]">
+                        <Image
+                          src={study.images[0]}
+                          alt={study.brand}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content side */}
+                  <div className="flex flex-col justify-center p-6 sm:p-8 lg:w-1/2 lg:p-10">
+                    {/* Logo(s) */}
+                    <div className="mb-4 flex items-center gap-3">
+                      {study.logo ? (
+                        <Image
+                          src={study.logo}
+                          alt={study.brand}
+                          width={48}
+                          height={48}
+                          unoptimized
+                          className="h-12 w-auto max-w-[120px] object-contain brightness-0 invert sm:h-14"
+                        />
+                      ) : study.logos ? (
+                        study.logos.map((logo: string) => (
                           <Image
                             key={logo}
                             src={logo}
                             alt=""
-                            width={60}
-                            height={24}
+                            width={48}
+                            height={48}
                             unoptimized
-                            className="h-5 w-auto object-contain opacity-50 invert sm:h-6"
+                            className="h-8 w-8 object-contain brightness-0 invert sm:h-10 sm:w-10"
                           />
-                        ))}
-                      </div>
-                    )}
+                        ))
+                      ) : null}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="mb-1 text-xl font-bold uppercase tracking-tight sm:text-2xl">
+                      {study.title}
+                    </h3>
+
+                    {/* Subtitle — what we did */}
+                    <p className="mb-4 text-sm text-[#CCFF00]/70">
+                      {study.subtitle}
+                    </p>
+
+                    {/* Description */}
+                    <p className="text-sm leading-relaxed text-zinc-400">
+                      {study.result}
+                    </p>
                   </div>
                 </div>
               </div>
