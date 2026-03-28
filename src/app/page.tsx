@@ -10,21 +10,21 @@ import { useEffect, useRef } from "react";
  * Vibe: Sporty + Fun + Professional + Worldly
  */
 
-const logos: { src: string; alt: string; color: "white" | "black" }[] = [
+const logos: { src: string; alt: string; color: "white" | "black"; mobileClass?: string }[] = [
   { src: "/logos/nike.png", alt: "Nike", color: "white" },
   { src: "/logos/adidas.png", alt: "Adidas", color: "black" },
   { src: "/logos/puma.png", alt: "Puma", color: "black" },
-  { src: "/logos/arcteryx.png", alt: "Arc'teryx", color: "black" },
-  { src: "/logos/jd-sports.png", alt: "JD Sports", color: "black" },
-  { src: "/logos/lululemon.png", alt: "Lululemon", color: "white" },
+  { src: "/logos/arcteryx.png", alt: "Arc'teryx", color: "black", mobileClass: "h-12 sm:h-16" },
+  { src: "/logos/jd-sports.png", alt: "JD Sports", color: "black", mobileClass: "h-12 sm:h-16" },
+  { src: "/logos/lululemon.png", alt: "Lululemon", color: "white", mobileClass: "h-12 sm:h-16" },
   { src: "/logos/aritzia.png", alt: "Aritzia", color: "black" },
-  { src: "/logos/red-bull.png", alt: "Red Bull", color: "white" },
-  { src: "/logos/prophecy.png", alt: "Prophecy", color: "white" },
-  { src: "/logos/chambar.png", alt: "Chambar", color: "white" },
-  { src: "/logos/ted.png", alt: "TED", color: "white" },
-  { src: "/logos/loveland.png", alt: "Nemesis Coffee", color: "white" },
-  { src: "/logos/meo.png", alt: "MEO Chinatown", color: "white" },
-  { src: "/logos/the-kent.png", alt: "The Kent", color: "white" },
+  { src: "/logos/red-bull.png", alt: "Red Bull", color: "white", mobileClass: "h-12 sm:h-16" },
+  { src: "/logos/prophecy.png", alt: "Prophecy", color: "white", mobileClass: "h-14 sm:h-20" },
+  { src: "/logos/chambar.png", alt: "Chambar", color: "white", mobileClass: "h-12 sm:h-16" },
+  { src: "/logos/ted.png", alt: "TED", color: "white", mobileClass: "h-7 sm:h-9" },
+  { src: "/logos/loveland.png", alt: "Nemesis Coffee", color: "white", mobileClass: "h-7 sm:h-12" },
+  { src: "/logos/meo.png", alt: "MEO Chinatown", color: "white", mobileClass: "h-8 sm:h-12" },
+  { src: "/logos/the-kent.png", alt: "The Kent", color: "white", mobileClass: "h-8 sm:h-12" },
   { src: "/logos/city-of-vancouver.png", alt: "City of Vancouver", color: "white" },
 ];
 
@@ -36,6 +36,7 @@ const caseStudies = [
     result:
       "Full sonic identity for the Lululemon Combine — bridging Vancouver roots with the global stage of Indian Wells.",
     image: "/case-studies/lululemon.png",
+    logos: ["/logos/lululemon.png"],
   },
   {
     brand: "Red Bull",
@@ -43,7 +44,8 @@ const caseStudies = [
     stat: "0 Dead Air",
     result:
       "Stadium-energy sets, halftime hype, and post-match celebrations. 100% family-friendly, zero dead air.",
-    image: "/case-studies/redbull-four2score-action.png",
+    image: "/case-studies/redbull-four2score.png",
+    logos: ["/logos/red-bull.png"],
   },
   {
     brand: "Aritzia",
@@ -52,6 +54,7 @@ const caseStudies = [
     result:
       "7 days. 12 hours daily. Zero silence between sets. Zero admin friction for the production team.",
     image: "/aritzia-warehouse.png",
+    logos: ["/logos/aritzia.png"],
   },
   {
     brand: "Nike / Adidas / Puma / JD Sports",
@@ -59,7 +62,17 @@ const caseStudies = [
     stat: "4 Brands",
     result:
       "Product launches, store activations, and street-to-sport crossover. Brand-standard execution at scale.",
-    image: null,
+    image: "/case-studies/big-four-sports.png",
+    logos: ["/logos/nike.png", "/logos/adidas.png", "/logos/puma.png", "/logos/jd-sports.png"],
+  },
+  {
+    brand: "Restaurantour",
+    title: "A Curated Lounge Experience",
+    stat: "3 Months",
+    result:
+      "A 3-month dining and lounge crawl across MEO, Prophecy Bar, and Chambar — Vancouver's most sought-after lounges. Curated lounge music, Afro house, elevated sounds, and world music for a discerning audience. Live instrumentation paired with 4 DJs performing as groups and solo sets.",
+    image: "/case-studies/restaurantour.avif",
+    logos: ["/logos/meo.png", "/logos/prophecy.png", "/logos/chambar.png"],
   },
 ];
 
@@ -79,16 +92,12 @@ export default function Home() {
       {/* ─── Nav ─── */}
       <nav className="fixed top-0 z-50 w-full border-b border-[#333] bg-black/90 backdrop-blur-sm">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 sm:py-4">
-          <a href="#" className="flex items-center gap-3">
-            <Image
-              src="/prospin-logo.png"
-              alt="Pro Spin Agency"
-              width={32}
-              height={32}
-              className="h-7 w-7 sm:h-8 sm:w-8"
-            />
-            <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-              Pro Spin Agency
+          <a href="#" className="flex items-center">
+            <span className="text-base font-black uppercase tracking-tight sm:text-lg">
+              Pro Spin{" "}
+              <span className="font-serif italic font-normal normal-case text-[#CCFF00] text-lg sm:text-xl">
+                Agency
+              </span>
             </span>
           </a>
           <div className="flex items-center gap-5 sm:gap-8">
@@ -125,32 +134,32 @@ export default function Home() {
           loop
           playsInline
           preload="auto"
-          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-60"
+          poster="/hero-poster.jpg"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-80"
         >
-          <source src="/hero-bg.mp4" type="video/mp4" />
+          <source src="/hero.webm" type="video/webm" />
+          <source src="/hero.mp4" type="video/mp4" />
         </video>
         {/* Gradient overlay — solid at bottom near text, fading to transparent at top to reveal video */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
 
         <div className="relative z-10 mx-auto w-full max-w-7xl">
-          <p className="mb-4 font-mono text-[10px] uppercase tracking-widest text-[#CCFF00] sm:mb-6 sm:text-xs">
-            Vancouver &middot; Indian Wells &middot; Toronto &middot; Los Angeles &middot; Worldwide
-          </p>
           <h1 className="max-w-6xl text-4xl font-black uppercase leading-[0.9] tracking-tighter sm:text-7xl lg:text-9xl">
             Pro Spin{" "}
             <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
               Agency
             </span>
           </h1>
-          <p className="mt-4 max-w-xl text-lg text-zinc-300 sm:mt-6 sm:text-2xl">
-            Connecting corporate with{" "}
+          <p className="mt-4 max-w-xl text-xl text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] sm:mt-6 sm:text-3xl">
+            Connecting brands with{" "}
             <span className="font-serif italic text-[#CCFF00]">culture.</span>
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:mt-12 sm:flex-row sm:items-end sm:justify-between">
-            <p className="max-w-md text-sm leading-relaxed text-zinc-400 sm:text-base">
-              Premium DJ talent and music direction for the world&apos;s most
-              iconic brands. We bring the energy brands can&apos;t hire off a
-              playlist — and the professionalism they can&apos;t risk without.
+            <p className="max-w-md text-sm leading-relaxed text-zinc-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] sm:text-base">
+              Skip the search. We curate top-tier talent from our roster
+              and community of DJs, build the perfect lineup, and manage
+              every detail — so you can focus on your event while we
+              deliver the sound that elevates it.
             </p>
             <div className="flex gap-3">
               <a
@@ -175,9 +184,9 @@ export default function Home() {
         <p className="mb-8 text-center font-mono text-xs uppercase tracking-widest text-zinc-400 sm:mb-10 sm:text-sm">
           Trusted by global and local brands
         </p>
-        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center justify-items-center gap-y-8 gap-x-10 sm:grid-cols-5 sm:gap-y-10 sm:gap-x-20">
+        <div className="mx-auto grid max-w-6xl grid-cols-3 items-center justify-items-center gap-y-8 gap-x-6 sm:grid-cols-5 sm:gap-y-10 sm:gap-x-20">
           {logos.map((logo) => (
-            <div key={logo.alt} className={`flex w-full items-center justify-center ${logo.alt === "Prophecy" ? "h-14 sm:h-20" : "h-10 sm:h-12"}`}>
+            <div key={logo.alt} className={`flex w-full items-center justify-center ${logo.mobileClass ?? "h-10 sm:h-12"}`}>
               <Image
                 src={logo.src}
                 alt={logo.alt}
@@ -193,113 +202,158 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── Why Pro Spin ─── */}
-      <section className="border-b border-[#333] px-5 py-14 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10 sm:mb-16">
-            <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
-              Why Us
-            </span>
-            <h2 className="max-w-3xl text-2xl font-black uppercase tracking-tight sm:text-4xl lg:text-5xl">
-              One partner.{" "}
-              <span className="font-serif italic font-normal normal-case">
-                Zero risk.
-              </span>
-            </h2>
-          </div>
-          <div className="grid gap-8 sm:grid-cols-3">
-            {[
-              [
-                "Culturally Fluent",
-                "Our DJs shape the culture — they don't follow it. From hip-hop to house, they read the room because they built the room.",
-              ],
-              [
-                "Operationally Bulletproof",
-                "One invoice. One point of contact. Contracts, riders, scheduling, rotations, and equipment — all handled.",
-              ],
-              [
-                "Brand-Safe, Always",
-                "Every DJ is vetted for professionalism, brand etiquette, and technical mastery. Your reputation is non-negotiable.",
-              ],
-            ].map(([title, desc]) => (
-              <div key={title} className="border-t border-[#333] pt-6">
-                <h3 className="mb-3 text-base font-bold uppercase tracking-wide sm:text-lg">
-                  {title}
-                </h3>
-                <p className="text-sm leading-relaxed text-zinc-400">
-                  {desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Services Grid ─── */}
+      {/* ─── How It Works ─── */}
       <section
         id="services"
         className="border-b border-[#333] px-5 py-14 sm:px-8 sm:py-24"
       >
         <div className="mx-auto max-w-7xl">
-          <div className="mb-10 flex items-baseline justify-between sm:mb-16">
-            <div>
-              <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
-                What We Do
+          <div className="mb-6 sm:mb-10">
+            <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+              How It Works
+            </span>
+            <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl lg:text-6xl">
+              <span className="font-serif italic font-normal normal-case">
+                Seamless{" "}
               </span>
-              <h2 className="text-2xl font-black uppercase tracking-tight sm:text-4xl">
-                <span className="font-serif italic font-normal normal-case">
-                  Full-service{" "}
-                </span>
-                Sound
-              </h2>
-            </div>
-            <span className="font-mono text-xs text-zinc-600">06 ITEMS</span>
+              Sound, Start to Finish
+            </h2>
           </div>
-          <div className="grid grid-cols-1 gap-px border border-[#333] bg-[#333] sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              [
-                "01",
-                "Consultation",
-                "Brand alignment, audience profiling, and event strategy.",
-              ],
-              [
-                "02",
-                "Playlist Curation",
-                "Custom sonic identities and energy arcs for your activation.",
-              ],
-              [
-                "03",
-                "Talent Sourcing",
-                "Vetted professionals verified for technical mastery and etiquette.",
-              ],
-              [
-                "04",
-                "Event Logistics",
-                "Scheduling, contracts, riders, rotations — one invoice, zero friction.",
-              ],
-              [
-                "05",
-                "Music Direction",
-                "On-site QC, seamless transitions, crowd-reading in real time.",
-              ],
-              [
-                "06",
-                "Equipment Mgmt",
-                "End-to-end technical setup, handovers, and on-site quality control.",
-              ],
-            ].map(([num, title, desc]) => (
-              <div key={num} className="bg-black p-5 sm:p-8">
-                <span className="mb-3 block font-mono text-xs text-[#CCFF00] sm:mb-4">
-                  {num}
-                </span>
-                <h3 className="mb-2 text-sm font-bold uppercase tracking-wide sm:text-base">
-                  {title}
+          <p className="mb-10 max-w-3xl text-sm leading-relaxed text-zinc-400 sm:mb-16 sm:text-base">
+            We ensure your event has continuous, uninterrupted sound — and that
+            your audience connects to your event emotionally through the music.
+            Whether you need curated playlists, live DJs, or both, here&apos;s
+            how we make it happen.
+          </p>
+
+          <span className="mb-6 block font-mono text-xs uppercase tracking-widest text-zinc-500 sm:mb-8">
+            The Process
+          </span>
+
+          {/* ── Metro Map ── */}
+          <div className="relative space-y-6 sm:space-y-8">
+            {/* ── Station 1: Consultation ── */}
+            <div className="flex items-stretch gap-4 sm:gap-6">
+              <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-xs font-bold text-[#CCFF00] sm:h-12 sm:w-12">
+                  1
+                </div>
+                <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
+              </div>
+              <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
+                <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                  Consultation
                 </h3>
+                <p className="mb-3 text-sm text-[#CCFF00]/70">
+                  We listen, learn your vision, and make every next step easy.
+                </p>
                 <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
-                  {desc}
+                  We learn everything about your event — the audience, the vibe, and the brand. Family-friendly, high-energy sporting activation, intimate lounge — we tailor our approach to your specific crowd.
                 </p>
               </div>
-            ))}
+            </div>
+
+            {/* ── Station 2: Talent / Playlists (branching) ── */}
+            <div className="flex items-stretch gap-4 sm:gap-6">
+              <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-[#CCFF00] font-mono text-xs font-bold text-black sm:h-12 sm:w-12">
+                  2
+                </div>
+                <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
+              </div>
+              <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
+                {/* Branch A: Live DJs */}
+                <div className="overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
+                    <span className="mb-1 block font-mono text-xs text-[#CCFF00]">A — Live DJs</span>
+                    <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                      Talent Selection
+                    </h3>
+                    <p className="mb-3 text-sm text-[#CCFF00]/70">
+                      We give you options. You pick your favourites.
+                    </p>
+                    <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
+                      We present an organized shortlist with portfolios, mix previews, and bios. Review, listen, approve — we refine until you&apos;re 100% happy. DJs read the crowd in real time.
+                    </p>
+                </div>
+
+                {/* Branch B: Playlists */}
+                <div className="overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
+                    <span className="mb-1 block font-mono text-xs text-[#CCFF00]">B — Playlists</span>
+                    <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                      Playlist Curation
+                    </h3>
+                    <p className="mb-3 text-sm text-[#CCFF00]/70">
+                      No silent moments. Ever.
+                    </p>
+                    <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
+                      Between DJ sets or standalone — we build playlists tailored to your event&apos;s energy arc. Works alongside live DJs or independently.
+                    </p>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Station 3: Contracting ── */}
+            <div className="flex items-stretch gap-4 sm:gap-6">
+              <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-xs font-bold text-[#CCFF00] sm:h-12 sm:w-12">
+                  3
+                </div>
+                <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
+              </div>
+              <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
+                  <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                    Contracting & Invoicing
+                  </h3>
+                  <p className="mb-3 text-sm text-[#CCFF00]/70">
+                    1 contract. 1 invoice. Zero risk.
+                  </p>
+                  <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
+                    We handle all contracts, riders, and scheduling. You get one single invoice — no back-and-forth with multiple vendors.
+                  </p>
+              </div>
+            </div>
+
+            {/* ── Station 4: Event Day ── */}
+            <div className="flex items-stretch gap-4 sm:gap-6">
+              <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-xs font-bold text-[#CCFF00] sm:h-12 sm:w-12">
+                  4
+                </div>
+                <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
+              </div>
+              <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
+                  <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                    Day-Of Execution
+                  </h3>
+                  <p className="mb-3 text-sm text-[#CCFF00]/70">
+                    We show up early and have your back all day.
+                  </p>
+                  <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
+                    Our staff arrive early, every time. Clean switchovers, backup plans for emergencies, and zero dead air. Promptness and professionalism guaranteed.
+                  </p>
+              </div>
+            </div>
+
+            {/* ── Terminal Station ── */}
+            <div className="flex items-start gap-4 sm:gap-6">
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-[#CCFF00] font-mono text-xs font-bold text-black sm:h-12 sm:w-12">
+                ✓
+              </div>
+              <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
+                  <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                    Event{" "}
+                    <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
+                      Delivered
+                    </span>
+                  </h3>
+                  <p className="mb-3 text-sm text-[#CCFF00]/70">
+                    You enjoy it. We made it happen.
+                  </p>
+                  <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
+                    A well-oiled machine — so you never have to think about the music, just enjoy the event.
+                  </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -312,11 +366,11 @@ export default function Home() {
               <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
                 Portfolio
               </span>
-              <h2 className="text-2xl font-black uppercase tracking-tight sm:text-4xl">
-                <span className="font-serif italic font-normal normal-case">
-                  Selected{" "}
+              <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl">
+                <span className="font-serif italic font-normal normal-case text-4xl sm:text-6xl">
+                  Recent
                 </span>
-                Work
+                <span className="inline-block w-3 sm:w-4" />Success Stories
               </h2>
             </div>
             <span className="font-mono text-xs text-zinc-600">
@@ -359,6 +413,21 @@ export default function Home() {
                     <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
                       {study.result}
                     </p>
+                    {study.logos && study.logos.length > 0 && (
+                      <div className="mt-4 flex items-center gap-4 sm:mt-6">
+                        {study.logos.map((logo: string) => (
+                          <Image
+                            key={logo}
+                            src={logo}
+                            alt=""
+                            width={60}
+                            height={24}
+                            unoptimized
+                            className="h-5 w-auto object-contain opacity-50 invert sm:h-6"
+                          />
+                        ))}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
