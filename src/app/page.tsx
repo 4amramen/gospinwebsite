@@ -31,59 +31,89 @@ const logos: { src: string; alt: string; color: "white" | "black"; mobileClass?:
 const caseStudies = [
   {
     brand: "Aritzia",
-    title: "84+ Hours of Seamless Sound",
+    title: "84+ Hours of Sound for the Aritzia Warehouse Sale",
     subtitle: "Full DJ rotation management across a 7-day, 84-hour warehouse sale",
     stat: "84+ Hrs",
-    result:
-      "Zero silence between sets. Zero admin friction for the production team. We managed full DJ rotations across a 7-day warehouse sale — 12 hours of continuous sound each day with clean switchovers and zero downtime.",
+    challenge: "One of Canada's largest retail events needed continuous music for 7 straight days — 12 hours a day. No gaps. No awkward silence between sets.",
+    bullets: [
+      "Managed the entire DJ roster end-to-end — sourcing, scheduling, briefing",
+      "Clean switchovers every set, every day — zero downtime",
+      "Vibe evolved from morning shopping flow to peak afternoon energy to evening wind-down",
+      "One point of contact for the production team — not 20 individual DJs",
+    ],
+    takeaway: "Proves we can run a marathon. The Fan Festival is this at 4x scale.",
     images: ["/aritzia-warehouse.png"],
     logo: "/logos/aritzia.png",
     tags: ["Retail", "Marathon Event", "DJ Rotation"],
   },
   {
     brand: "Lululemon",
-    title: "Sonic Identity at BNP Paribas Open",
-    subtitle: "Built a complete sonic identity for the Lululemon Combine at Indian Wells",
+    title: "Music Curation for the BNP Paribas Open",
+    subtitle: "Curated the sound for the Lululemon Combine at Indian Wells, California",
     stat: "1 Sonic Identity",
-    result:
-      "Built a complete sonic identity for the Lululemon Combine — bridging Vancouver roots with the global stage of Indian Wells. Curated sound that matched the athletic intensity and wellness ethos of the brand across multiple activation zones.",
+    challenge: "Lululemon needed a sound that could represent their Vancouver roots on a global stage — at the BNP Paribas Open in Indian Wells, California.",
+    bullets: [
+      "Built the entire sonic identity from scratch — not just DJs, but the brand's sound",
+      "Multiple activation zones, each with a distinct sound profile",
+      "Matched the athletic intensity and wellness ethos of the brand",
+      "Curated playlists and live DJ sets for an elite international audience",
+    ],
+    takeaway: "We don't just play music. We define what the music means for your brand.",
     images: ["/case-studies/lululemon.png"],
     logo: "/logos/lululemon.png",
     tags: ["Global", "Brand Activation", "Sonic Identity"],
   },
   {
     brand: "Red Bull",
-    title: "Four 2 Score — BC Tournament",
-    subtitle: "Kept the crowd engaged through every match, halftime, and ceremony",
+    title: "DJs for Red Bull Four 2 Score",
+    subtitle: "Booked DJs for a competitive soccer tournament across BC",
     stat: "0 Dead Air",
-    result:
-      "Stadium-energy sets, halftime hype, and post-match celebrations. 100% family-friendly, zero dead air. We kept the crowd engaged through every whistle, timeout, and trophy ceremony.",
+    challenge: "A competitive soccer tournament needs more than a speaker and a playlist. The energy before kickoff, at halftime, after the final whistle — that's the DJ's job.",
+    bullets: [
+      "Pre-match hype, halftime energy, post-match celebrations",
+      "Kept the crowd locked in through every whistle, timeout, and trophy ceremony",
+      "100% family-friendly — zero explicit content, zero risk",
+      "DJ read the crowd live and managed energy in real time",
+    ],
+    takeaway: "The exact format match screenings and sporting events need.",
     images: [
       "/case-studies/redbull-four2score.png",
-      "/case-studies/redbull-four2score-action.png",
+      "/case-studies/redbull-four2score-crowd.jpg",
     ],
     logo: "/logos/red-bull.png",
     tags: ["Sporting Event", "Family-Friendly", "Live Energy"],
   },
   {
     brand: "Nike / Adidas / Puma / JD Sports",
-    title: "The Big Four Sport Activations",
-    subtitle: "Sound curation for product launches and store activations across four major brands",
+    title: "Big Four Sport Activations",
+    subtitle: "Booked DJs for product launches and store activations across Nike, Adidas, Puma, and JD Sports",
     stat: "4 Brands",
-    result:
-      "Product launches, store activations, and street-to-sport crossover. Brand-standard execution at scale across four of the biggest names in sportswear — each with unique sonic requirements and brand guidelines.",
-    images: ["/case-studies/big-four-sports.png"],
+    challenge: "Every brand has its own sonic DNA. Nike wants innovation energy. Adidas wants street culture. Puma wants trend-forward. JD Sports wants street-to-sport crossover.",
+    bullets: [
+      "Product launches, store activations, and brand events across all four",
+      "Each brand with unique sonic requirements and strict brand guidelines",
+      "Shifted between four different brand identities — delivered at standard every time",
+      "Current, clean, high-energy — always on-brand",
+    ],
+    takeaway: "When sponsor activations need DJs who understand brand-safe execution, this is the proof.",
+    images: ["/case-studies/jd-sports.avif"],
     logos: ["/logos/nike.png", "/logos/adidas.png", "/logos/puma.png", "/logos/jd-sports.png"],
     tags: ["Retail", "Brand Launch", "Multi-Brand"],
   },
   {
     brand: "Restaurantour",
-    title: "A Curated Lounge Crawl",
-    subtitle: "Curated sound and live talent across Vancouver's top three lounges for 3 months",
+    title: "A 3-Month Curated Lounge Experience",
+    subtitle: "Curated sound and live talent across Vancouver's top three lounges",
     stat: "3 Months",
-    result:
-      "A 3-month dining and lounge crawl across Vancouver's most sought-after venues. Curated lounge music, Afro house, elevated sounds, and world music for a discerning audience. Live instrumentation paired with 4 DJs performing as groups and solo sets.",
-    images: ["/case-studies/restaurantour.avif"],
+    challenge: "Three of Vancouver's most sought-after venues — MEO Chinatown, Prophecy, and Chambar — needed sustained, premium sound for a discerning audience.",
+    bullets: [
+      "Deep house, afro house, elevated world music — the best lounge sound in the city",
+      "4 DJs with live instrumentation, performing as groups and solo sets",
+      "3 months of sustained curation across multiple venues",
+      "Managed sound across all three spaces simultaneously",
+    ],
+    takeaway: "If you need premium curation for VIP hospitality or corporate lounges, we've already done it.",
+    images: ["/case-studies/restaurantour-group.jpg"],
     logos: ["/logos/meo.png", "/logos/prophecy.png", "/logos/chambar.png"],
     tags: ["Hospitality", "Live Music", "Lounge"],
   },
@@ -215,6 +245,151 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── Founders ─── */}
+      <section className="border-b border-[#333] px-5 py-14 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 sm:mb-16">
+            <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+              Founders
+            </span>
+            <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl lg:text-6xl">
+              Built by{" "}
+              <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
+                DJs.
+              </span>
+            </h2>
+            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-400 sm:text-base">
+              Pro Spin was born from Vancouver&apos;s DJ community — founded by two DJs who&apos;ve spent years building the scene, connecting talent, and placing DJs at the biggest events in the city.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12">
+            {/* Rammie */}
+            <div className="group overflow-hidden rounded-2xl border border-[#333] bg-zinc-950">
+              <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900">
+                <Image
+                  src="/talent/rammie photo.jpg"
+                  alt="Rammie"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "center 35%", transform: "scale(1.15)" }}
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <span className="mb-2 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+                  Co-Founder
+                </span>
+                <h3 className="mb-3 text-2xl font-bold uppercase tracking-tight sm:text-3xl">
+                  Rammie
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-400">
+                  One of Vancouver&apos;s founding DJs with millions of views on YouTube. Rammie built the DJ community that Pro Spin draws from — connecting hundreds of DJs across the city and placing them at events for Nike, Adidas, Lululemon, Red Bull, and more. A global-sounds DJ who plays across cultures and understands how to curate the right moment for any crowd.
+                </p>
+              </div>
+            </div>
+
+            {/* Nai */}
+            <div className="group overflow-hidden rounded-2xl border border-[#333] bg-zinc-950">
+              <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900">
+                <Image
+                  src="/talent/nai photo.jpg"
+                  alt="Nai"
+                  fill
+                  className="object-cover"
+                  style={{ objectPosition: "center 15%" }}
+                />
+              </div>
+              <div className="p-6 sm:p-8">
+                <span className="mb-2 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+                  Co-Founder
+                </span>
+                <h3 className="mb-3 text-2xl font-bold uppercase tracking-tight sm:text-3xl">
+                  Nai
+                </h3>
+                <p className="text-sm leading-relaxed text-zinc-400">
+                  A DJ and community builder who runs women-led events and community activations across Vancouver. Nai brings a deep focus on inclusive, vibrant experiences — creating spaces where diverse audiences feel represented and energized. Together with Rammie, she built the network of local talent that powers Pro Spin.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Talent Roster */}
+          <div className="mt-16 sm:mt-20">
+            <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+              Talent
+            </span>
+            <h3 className="mb-6 text-2xl font-black uppercase tracking-tight sm:mb-8 sm:text-3xl">
+              Our Roster &amp;{" "}
+              <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
+                Community
+              </span>
+            </h3>
+
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5">
+              {[
+                { name: "Britt", src: "/talent/britt.jpg" },
+                { name: "Dae", src: "/talent/dae.jpg" },
+                { name: "Kai Ocean", src: "/talent/kai ocean.jpg" },
+                { name: "Hello Slick", src: "/talent/hello slick.jpg" },
+                { name: "Pop Misfit", src: "/talent/pop misfit.jpg", objectPos: "center center" },
+                { name: "VStar", src: "/talent/vstar.jpg" },
+                { name: "Judo", src: "/talent/judo.jpg" },
+                { name: "Jamil", src: "/talent/jamil.jpg" },
+                { name: "Nick Mateo", src: "/talent/nick mateo.jpg" },
+                { name: "Rems", src: "/talent/rems.jpg" },
+                { name: "Karen Njoki", src: "/talent/karen njoki.jpg" },
+                { name: "Kylino", src: "/talent/kylino.jpg" },
+                { name: "Miguel", src: "/talent/miguel.jpg" },
+                { name: "Rae Diamendz", src: "/talent/rae3.jpg" },
+              ].map((artist: { name: string; src: string; objectPos?: string }) => (
+                <div key={artist.name} className="group">
+                  <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-900">
+                    <Image
+                      src={artist.src}
+                      alt={artist.name}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      style={artist.objectPos ? { objectPosition: artist.objectPos } : undefined}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                      <p className="text-sm font-bold uppercase tracking-wide text-white sm:text-base">
+                        {artist.name}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+              {/* CTA tile */}
+              <a href="#contact" className="group">
+                <div className="relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-xl border border-[#333] p-5 text-center transition-colors hover:border-[#CCFF00]">
+                  <Image
+                    src="/talent/community-group.jpg"
+                    alt="Pro Spin community"
+                    fill
+                    className="object-cover opacity-15 scale-125"
+                  />
+                  <div className="relative z-10">
+                    <p className="mb-1 font-mono text-xs uppercase tracking-widest text-zinc-400">
+                      And many more
+                    </p>
+                    <p className="mb-3 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl">
+                      200+
+                    </p>
+                    <p className="mb-4 text-xs leading-relaxed text-zinc-400">
+                      DJs in our network
+                    </p>
+                    <span className="rounded-full bg-[#CCFF00] px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-black">
+                      See Full Roster
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── How It Works ─── */}
       <section
         id="services"
@@ -233,10 +408,10 @@ export default function Home() {
             </h2>
           </div>
           <p className="mb-10 max-w-3xl text-sm leading-relaxed text-zinc-400 sm:mb-16 sm:text-base">
-            We ensure your event has continuous, uninterrupted sound — and that
-            your audience connects to your event emotionally through the music.
-            Whether you need curated playlists, live DJs, or both, here&apos;s
-            how we make it happen.
+            As music experts, we oversee every detail — from vetting DJ talent
+            and reviewing their sets to building playlists ourselves. Whether
+            you need live DJs, curated playlists for when there&apos;s no one on
+            the decks, or both, here&apos;s how we make it happen.
           </p>
 
           <span className="mb-6 block font-mono text-xs uppercase tracking-widest text-zinc-500 sm:mb-8">
@@ -248,13 +423,14 @@ export default function Home() {
             {/* ── Station 1: Consultation ── */}
             <div className="flex items-stretch gap-4 sm:gap-6">
               <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-xs font-bold text-[#CCFF00] sm:h-12 sm:w-12">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-sm font-bold text-[#CCFF00] sm:h-12 sm:w-12 sm:text-base">
                   1
                 </div>
                 <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
               </div>
               <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
-                <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                <h3 className="mb-1 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wide sm:text-lg">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-[#CCFF00] sm:h-5 sm:w-5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                   Consultation
                 </h3>
                 <p className="mb-3 text-sm text-[#CCFF00]/70">
@@ -269,7 +445,7 @@ export default function Home() {
             {/* ── Station 2: Talent / Playlists (branching) ── */}
             <div className="flex items-stretch gap-4 sm:gap-6">
               <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-[#CCFF00] font-mono text-xs font-bold text-black sm:h-12 sm:w-12">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-[#CCFF00] font-mono text-sm font-bold text-black sm:h-12 sm:w-12 sm:text-base">
                   2
                 </div>
                 <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
@@ -277,21 +453,27 @@ export default function Home() {
               <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
                 {/* Branch A: Live DJs */}
                 <div className="overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
-                    <span className="mb-1 block font-mono text-xs text-[#CCFF00]">A — Live DJs</span>
+                    <span className="mb-2 inline-flex items-center gap-1.5 font-mono text-xs text-[#CCFF00]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
+                      Live DJs
+                    </span>
                     <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
-                      Talent Selection
+                      Talent Selection & Review
                     </h3>
                     <p className="mb-3 text-sm text-[#CCFF00]/70">
-                      We give you options. You pick your favourites.
+                      We vet the talent. You pick your favourites.
                     </p>
                     <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
-                      We present an organized shortlist with portfolios, mix previews, and bios. Review, listen, approve — we refine until you&apos;re 100% happy. DJs read the crowd in real time.
+                      We present a curated shortlist with portfolios, mix previews, and bios. Once you approve, we meet with each DJ, review their planned sets and playlists, and ensure everything they show up and play is on-brand and according to plan. On event day, they read the crowd in real time — with our music expertise backing every decision.
                     </p>
                 </div>
 
                 {/* Branch B: Playlists */}
                 <div className="overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
-                    <span className="mb-1 block font-mono text-xs text-[#CCFF00]">B — Playlists</span>
+                    <span className="mb-2 inline-flex items-center gap-1.5 font-mono text-xs text-[#CCFF00]">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-3.5 w-3.5"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                      Curated Playlists
+                    </span>
                     <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
                       Playlist Curation
                     </h3>
@@ -299,7 +481,7 @@ export default function Home() {
                       No silent moments. Ever.
                     </p>
                     <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
-                      Between DJ sets or standalone — we build playlists tailored to your event&apos;s energy arc. Works alongside live DJs or independently.
+                      For times when there&apos;s no DJ — between sets, background ambiance, or full events that don&apos;t need live talent — we build custom playlists matched to your event&apos;s energy arc. Built by our music team, not an algorithm.
                     </p>
                 </div>
               </div>
@@ -308,17 +490,18 @@ export default function Home() {
             {/* ── Station 3: Contracting ── */}
             <div className="flex items-stretch gap-4 sm:gap-6">
               <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-xs font-bold text-[#CCFF00] sm:h-12 sm:w-12">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-sm font-bold text-[#CCFF00] sm:h-12 sm:w-12 sm:text-base">
                   3
                 </div>
                 <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
               </div>
               <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
-                  <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
-                    Contracting & Invoicing
+                  <h3 className="mb-1 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wide sm:text-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-[#CCFF00] sm:h-5 sm:w-5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                    Contracting, <span className="text-[#CCFF00]">Scheduling</span> & Invoicing
                   </h3>
                   <p className="mb-3 text-sm text-[#CCFF00]/70">
-                    1 contract. 1 invoice. Zero risk.
+                    1 contract. 1 invoice. We handle the schedule. Zero risk.
                   </p>
                   <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
                     We handle all contracts, riders, and scheduling. You get one single invoice — no back-and-forth with multiple vendors.
@@ -329,13 +512,14 @@ export default function Home() {
             {/* ── Station 4: Event Day ── */}
             <div className="flex items-stretch gap-4 sm:gap-6">
               <div className="relative z-10 -mb-6 self-stretch flex flex-col items-center sm:-mb-8">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-xs font-bold text-[#CCFF00] sm:h-12 sm:w-12">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-black font-mono text-sm font-bold text-[#CCFF00] sm:h-12 sm:w-12 sm:text-base">
                   4
                 </div>
                 <div className="w-0.5 flex-1 bg-[#CCFF00]/40" />
               </div>
               <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
-                  <h3 className="mb-1 text-base font-bold uppercase tracking-wide sm:text-lg">
+                  <h3 className="mb-1 inline-flex items-center gap-2 text-base font-bold uppercase tracking-wide sm:text-lg">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 text-[#CCFF00] sm:h-5 sm:w-5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                     Day-Of Execution
                   </h3>
                   <p className="mb-3 text-sm text-[#CCFF00]/70">
@@ -349,7 +533,7 @@ export default function Home() {
 
             {/* ── Terminal Station ── */}
             <div className="flex items-start gap-4 sm:gap-6">
-              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-[#CCFF00] font-mono text-xs font-bold text-black sm:h-12 sm:w-12">
+              <div className="relative z-10 flex h-10 w-10 shrink-0 items-center justify-center rounded-full border-2 border-[#CCFF00] bg-[#CCFF00] font-mono text-lg font-bold text-black sm:h-12 sm:w-12 sm:text-xl">
                 ✓
               </div>
               <div className="w-full overflow-hidden rounded-2xl border border-[#333] bg-zinc-950 p-5 sm:p-6">
@@ -360,10 +544,10 @@ export default function Home() {
                     </span>
                   </h3>
                   <p className="mb-3 text-sm text-[#CCFF00]/70">
-                    You enjoy it. We made it happen.
+                    One less thing on your plate.
                   </p>
                   <p className="text-xs leading-relaxed text-zinc-500 sm:text-sm">
-                    A well-oiled machine — so you never have to think about the music, just enjoy the event.
+                    The music runs seamlessly so you can focus on everything else — we&apos;ve got this side covered.
                   </p>
               </div>
             </div>
@@ -443,7 +627,7 @@ export default function Home() {
                             width={48}
                             height={48}
                             unoptimized
-                            className="h-8 w-8 object-contain brightness-0 invert sm:h-10 sm:w-10"
+                            className="h-7 w-auto max-w-[80px] object-contain brightness-0 invert sm:h-8"
                           />
                         ))
                       ) : null}
@@ -454,36 +638,37 @@ export default function Home() {
                       {study.title}
                     </h3>
 
-                    {/* Subtitle — what we did */}
+                    {/* Subtitle */}
                     <p className="mb-4 text-sm text-[#CCFF00]/70">
                       {study.subtitle}
                     </p>
 
-                    {/* Description */}
-                    <p className="text-sm leading-relaxed text-zinc-400">
-                      {study.result}
+                    {/* Challenge */}
+                    <p className="mb-4 text-sm leading-relaxed text-zinc-300">
+                      {study.challenge}
                     </p>
+
+                    {/* Bullet points */}
+                    <ul className="mb-4 space-y-2">
+                      {study.bullets.map((bullet: string) => (
+                        <li key={bullet} className="flex items-start gap-2 text-sm text-zinc-400">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#CCFF00]" />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Takeaway */}
+                    <div className="rounded-lg border border-[#CCFF00]/20 bg-[#CCFF00]/5 px-4 py-3">
+                      <p className="text-sm font-medium text-[#CCFF00]/90">
+                        {study.takeaway}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ─── Testimonial / Social Proof ─── */}
-      <section className="border-t border-[#333] px-5 py-14 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-4xl text-center">
-          <span className="mb-6 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
-            Client Feedback
-          </span>
-          <blockquote className="font-serif text-xl italic leading-relaxed text-zinc-200 sm:text-3xl lg:text-4xl">
-            &ldquo;Pro Spin doesn&apos;t just show up with DJs — they show up
-            with a plan. That&apos;s the difference.&rdquo;
-          </blockquote>
-          <p className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-600">
-            — Brand Activation Lead, Global Sportswear Company
-          </p>
         </div>
       </section>
 
