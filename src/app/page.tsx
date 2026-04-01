@@ -395,8 +395,8 @@ export default function Home() {
                   <p className="mb-4 text-xs leading-relaxed text-zinc-400">
                     DJs in our network
                   </p>
-                  <span className="rounded-full bg-[#CCFF00] px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-black">
-                    Get Full Roster
+                  <span className="inline-block rounded-full bg-[#CCFF00] px-3 py-1 font-mono text-[10px] font-bold uppercase tracking-wider text-black sm:px-4 sm:py-1.5 sm:text-xs">
+                    Full Roster
                   </span>
                 </div>
               </div>
