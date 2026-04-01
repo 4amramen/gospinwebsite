@@ -135,7 +135,8 @@ export default function Home() {
       {/* ─── Nav ─── */}
       <nav className="fixed top-0 z-50 w-full border-b border-[#333] bg-black/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 sm:py-4">
-          <a href="#" className="flex items-center">
+          <a href="#" className="flex items-center gap-2">
+            <Image src="/logo-volt.png" alt="Pro Spin" width={28} height={28} unoptimized className="h-6 w-auto sm:h-7" />
             <span className="text-base font-black uppercase tracking-tight sm:text-lg">
               Pro Spin{" "}
               <span className="font-serif italic font-normal normal-case text-[#CCFF00] text-lg sm:text-xl">
@@ -204,10 +205,11 @@ export default function Home() {
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:mt-12 sm:flex-row sm:items-end sm:justify-between">
             <p className="max-w-md text-sm leading-relaxed text-zinc-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] sm:text-base">
-              Skip the search. We curate top-tier talent from our roster
-              and community of DJs, build the perfect lineup, and manage
-              every detail — so you can focus on your event while we
-              deliver the sound that elevates it.
+              Skip the search. We curate top-tier talent from our
+              diverse roster of BIPOC and multicultural DJs, build the
+              perfect lineup, and manage every detail — helping your
+              brand tell its story through music while we deliver the
+              sound that elevates it.
             </p>
             <div className="flex gap-3">
               <a
@@ -288,7 +290,7 @@ export default function Home() {
                   Rammie
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-400">
-                  One of Vancouver&apos;s founding DJs with millions of views on YouTube. Rammie built the DJ community that Pro Spin draws from — connecting hundreds of DJs across the city and placing them at events for Nike, Adidas, Lululemon, Red Bull, and more. A global-sounds DJ who plays across cultures and understands how to curate the right moment for any crowd.
+                  One of Vancouver&apos;s founding DJs with millions of views on YouTube. Rammie has played at festivals like Basscoast and built the DJ community that Pro Spin draws from — connecting hundreds of DJs across the city and placing them at events for Nike, Adidas, Lululemon, Red Bull, and more. A global-sounds DJ who plays across cultures and understands how to curate the right moment for any crowd.
                 </p>
               </div>
             </div>
@@ -312,7 +314,7 @@ export default function Home() {
                   Nai
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-400">
-                  A DJ and community builder who runs women-led events and community activations across Vancouver. Nai brings a deep focus on inclusive, vibrant experiences — creating spaces where diverse audiences feel represented and energized. Together with Rammie, she built the network of local talent that powers Pro Spin.
+                  A DJ and community builder who has played at festivals like FVDED in the Park and runs women-led events and community activations across Vancouver. Nai brings a deep focus on inclusive, vibrant experiences — creating spaces where diverse audiences feel represented and energized. Together with Rammie, she built the network of local talent that powers Pro Spin.
                 </p>
               </div>
             </div>
@@ -336,21 +338,21 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5">
             {[
-              { name: "Stargirl", src: "/talent/britt.jpg", flags: ["gb"] },
-              { name: "Dae", src: "/talent/dae.jpg", flags: ["ng"] },
-              { name: "Kai Ocean", src: "/talent/kai ocean.jpg", flags: ["jp"] },
-              { name: "Hello Slick", src: "/talent/hello slick.jpg", flags: ["ie"] },
-              { name: "Pop Misfit", src: "/talent/pop misfit.jpg", objectPos: "center 20%", flags: ["pt", "jp"] },
-              { name: "VStar", src: "/talent/vstar.jpg", flags: ["it"] },
-              { name: "The Kuyas", src: "/talent/the-kuyas.png", flags: ["ph"] },
-              { name: "Lionessa", src: "/talent/lionessa.png", objectPos: "center 20%", flags: ["eg"] },
-              { name: "Starbaby", src: "/talent/starbaby.png", flags: ["ph"] },
-              { name: "Binky", src: "/talent/binky.png", flags: ["do"] },
-              { name: "Njoki Njoki", src: "/talent/karen njoki.jpg", flags: ["ke"] },
-              { name: "Kylino", src: "/talent/kylino.jpg", flags: ["ph"] },
-              { name: "El.Mig.El", src: "/talent/miguel.jpg", flags: ["hn"] },
-              { name: "Rae Diamendz", src: "/talent/rae3.jpg", flags: ["fj"] },
-            ].map((artist: { name: string; src: string; objectPos?: string; flags?: string[] }) => (
+              { name: "Stargirl", src: "/talent/britt.jpg" },
+              { name: "Dae", src: "/talent/dae.jpg" },
+              { name: "Kai Ocean", src: "/talent/kai ocean.jpg" },
+              { name: "Hello Slick", src: "/talent/hello slick.jpg" },
+              { name: "Pop Misfit", src: "/talent/pop misfit.jpg", objectPos: "center 20%" },
+              { name: "VStar", src: "/talent/vstar.jpg" },
+              { name: "The Kuyas", src: "/talent/the-kuyas.png" },
+              { name: "Lionessa", src: "/talent/lionessa.png", objectPos: "center 20%" },
+              { name: "Starbaby", src: "/talent/starbaby.png" },
+              { name: "Binky", src: "/talent/binky.png" },
+              { name: "Njoki Njoki", src: "/talent/karen njoki.jpg" },
+              { name: "Kylino", src: "/talent/kylino.jpg" },
+              { name: "El.Mig.El", src: "/talent/miguel.jpg", objectPos: "center top" },
+              { name: "Rae Diamendz", src: "/talent/rae3.jpg" },
+            ].map((artist: { name: string; src: string; objectPos?: string }) => (
               <div key={artist.name} className="group">
                 <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-900">
                   <Image
@@ -361,13 +363,6 @@ export default function Home() {
                     style={artist.objectPos ? { objectPosition: artist.objectPos } : undefined}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/15" />
-                  {artist.flags && (
-                    <div className="absolute top-2 left-2 z-10 flex gap-1">
-                      {artist.flags.map((code) => (
-                        <span key={code} className={`fi fi-${code} rounded-sm shadow-md`} style={{ fontSize: "1.2rem" }} />
-                      ))}
-                    </div>
-                  )}
                   <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
                     <p className="text-sm font-bold uppercase tracking-wide text-white sm:text-base">
                       {artist.name}

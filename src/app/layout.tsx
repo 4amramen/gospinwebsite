@@ -15,9 +15,16 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Pro Spin Agency — Strategic Sound. Elite Curation. Cultural Authority.",
+  title: "Pro Spin Agency",
   description:
-    "Premium DJ talent and music management for the world's most iconic brands. Sports, brand activations, and global events.",
+    "Connecting brands with Vancouver's DJ community. DJ talent and music management for events, brand activations, and festivals.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
 };
 
 export default function RootLayout({
