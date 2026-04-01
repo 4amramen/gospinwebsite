@@ -601,9 +601,9 @@ export default function Home() {
                   <div className="relative lg:w-1/2">
                     {/* Single or multi-image grid */}
                     {study.images.length > 1 ? (
-                      <div className="grid h-48 grid-cols-2 gap-0.5 sm:h-72 lg:h-full lg:min-h-[360px]">
+                      <div className="grid h-72 grid-cols-1 gap-0.5 sm:h-72 sm:grid-cols-2 lg:h-full lg:min-h-[360px]">
                         {study.images.map((img: string, j: number) => (
-                          <div key={img} className={`relative ${j === 0 ? "col-span-2 sm:col-span-1" : ""}`}>
+                          <div key={img} className="relative min-h-[140px]">
                             <Image src={img} alt={`${study.brand} ${j + 1}`} fill className="object-cover" />
                           </div>
                         ))}
