@@ -338,21 +338,21 @@ export default function Home() {
 
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5">
             {[
-              { name: "Stargirl", src: "/talent/britt.jpg" },
-              { name: "Dae", src: "/talent/dae.jpg" },
-              { name: "Kai Ocean", src: "/talent/kai ocean.jpg" },
-              { name: "Hello Slick", src: "/talent/hello slick.jpg" },
-              { name: "Pop Misfit", src: "/talent/pop misfit.jpg", objectPos: "center 20%" },
-              { name: "VStar", src: "/talent/vstar.jpg" },
-              { name: "The Kuyas", src: "/talent/the-kuyas.png" },
-              { name: "Lionessa", src: "/talent/lionessa.png", objectPos: "center 20%" },
-              { name: "Starbaby", src: "/talent/starbaby.png" },
-              { name: "Binky", src: "/talent/binky.png" },
-              { name: "Njoki Njoki", src: "/talent/karen njoki.jpg" },
-              { name: "Kylino", src: "/talent/kylino.jpg" },
-              { name: "El.Mig.El", src: "/talent/miguel.jpg", objectPos: "center top" },
-              { name: "Rae Diamendz", src: "/talent/rae3.jpg" },
-            ].map((artist: { name: string; src: string; objectPos?: string }) => (
+              { name: "Dae", src: "/talent/dae.jpg", flag: "ng" },
+              { name: "Lionessa", src: "/talent/lionessa.png", objectPos: "center 20%", flag: "eg" },
+              { name: "Kai Ocean", src: "/talent/kai ocean.jpg", flag: "jp" },
+              { name: "Pop Misfit", src: "/talent/pop misfit.jpg", objectPos: "center 20%", flag: "pt" },
+              { name: "Binky", src: "/talent/binky.png", flag: "do" },
+              { name: "VStar", src: "/talent/vstar.jpg", flag: "it" },
+              { name: "The Kuyas", src: "/talent/the-kuyas.png", flag: "ph" },
+              { name: "Stargirl", src: "/talent/britt.jpg", flag: "gb" },
+              { name: "Starbaby", src: "/talent/starbaby.png", flag: "cn" },
+              { name: "Hello Slick", src: "/talent/hello slick.jpg", flag: "ie" },
+              { name: "Njoki Njoki", src: "/talent/karen njoki.jpg", flag: "ke" },
+              { name: "Kylino", src: "/talent/kylino.jpg", flag: "ph" },
+              { name: "El.Mig.El", src: "/talent/miguel.jpg", objectPos: "center 60%", flag: "sv" },
+              { name: "Rae Diamendz", src: "/talent/rae3.jpg", flag: "fj" },
+            ].map((artist: { name: string; src: string; objectPos?: string; flag?: string }) => (
               <div key={artist.name} className="group">
                 <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-900">
                   <Image
@@ -363,6 +363,11 @@ export default function Home() {
                     style={artist.objectPos ? { objectPosition: artist.objectPos } : undefined}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/15" />
+                  {artist.flag && (
+                    <div className="absolute top-2 left-2 z-10">
+                      <span className={`fi fi-${artist.flag} text-lg drop-shadow-md`} />
+                    </div>
+                  )}
                   <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
                     <p className="text-sm font-bold uppercase tracking-wide text-white sm:text-base">
                       {artist.name}
