@@ -216,7 +216,7 @@ export default function Home() {
                 href="#contact"
                 className="bg-[#CCFF00] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-black transition-opacity hover:opacity-80 sm:px-8"
               >
-                Book Us
+                Connect With Us
               </a>
               <a
                 href="#work"
@@ -706,7 +706,7 @@ export default function Home() {
             One point of contact. One invoice. Zero risk.
           </p>
           <a
-            href="mailto:team@prospin.agency"
+            href="mailto:bookings@prospin.agency"
             className="inline-block bg-[#CCFF00] px-8 py-3 font-mono text-sm font-bold uppercase tracking-wider text-black transition-opacity hover:opacity-80 sm:px-10 sm:py-4"
           >
             Let&apos;s Talk
