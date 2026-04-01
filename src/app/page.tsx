@@ -41,7 +41,7 @@ const caseStudies = [
       "Vibe evolved from morning shopping flow to peak afternoon energy to evening wind-down",
       "One point of contact for the production team — not 20 individual DJs",
     ],
-    takeaway: "Proves we can run a marathon. The Fan Festival is this at 4x scale.",
+    takeaway: "Proves we can run a marathon. We can do this at any scale.",
     images: ["/aritzia-warehouse.png"],
     logo: "/logos/aritzia.png",
     tags: ["Retail", "Marathon Event", "DJ Rotation"],
@@ -75,7 +75,7 @@ const caseStudies = [
       "100% family-friendly — zero explicit content, zero risk",
       "DJ read the crowd live and managed energy in real time",
     ],
-    takeaway: "The exact format match screenings and sporting events need.",
+    takeaway: "Live energy management for sporting events at any scale.",
     images: [
       "/case-studies/redbull-four2score.png",
       "/case-studies/redbull-four2score-crowd.jpg",
@@ -131,9 +131,9 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-black text-white">
+    <main className="relative bg-black text-white">
       {/* ─── Nav ─── */}
-      <nav className="fixed top-0 z-50 w-full border-b border-[#333] bg-black/90 backdrop-blur-sm">
+      <nav className="fixed top-0 z-50 w-full border-b border-[#333] bg-black/80 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 sm:py-4">
           <a href="#" className="flex items-center">
             <span className="text-base font-black uppercase tracking-tight sm:text-lg">
@@ -144,6 +144,12 @@ export default function Home() {
             </span>
           </a>
           <div className="flex items-center gap-5 sm:gap-8">
+            <a
+              href="#roster"
+              className="hidden font-mono text-xs uppercase tracking-wider text-zinc-500 transition-colors hover:text-white sm:block"
+            >
+              Our Artists
+            </a>
             <a
               href="#services"
               className="hidden font-mono text-xs uppercase tracking-wider text-zinc-500 transition-colors hover:text-white sm:block"
@@ -193,9 +199,8 @@ export default function Home() {
               Agency
             </span>
           </h1>
-          <p className="mt-4 max-w-xl text-xl text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] sm:mt-6 sm:text-3xl">
-            Connecting brands with{" "}
-            <span className="font-serif italic text-[#CCFF00]">culture.</span>
+          <p className="mt-4 text-2xl text-white drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)] sm:mt-6 sm:text-4xl lg:text-6xl">
+            Connecting brands with <span className="font-serif italic text-[#CCFF00]">culture.</span>
           </p>
           <div className="mt-8 flex flex-col gap-4 sm:mt-12 sm:flex-row sm:items-end sm:justify-between">
             <p className="max-w-md text-sm leading-relaxed text-zinc-300 drop-shadow-[0_1px_8px_rgba(0,0,0,0.9)] sm:text-base">
@@ -209,7 +214,7 @@ export default function Home() {
                 href="#contact"
                 className="bg-[#CCFF00] px-6 py-3 font-mono text-xs font-bold uppercase tracking-wider text-black transition-opacity hover:opacity-80 sm:px-8"
               >
-                Get Started
+                Book Us
               </a>
               <a
                 href="#work"
@@ -266,13 +271,13 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-12">
             {/* Rammie */}
             <div className="group overflow-hidden rounded-2xl border border-[#333] bg-zinc-950">
-              <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900">
+              <div className="relative aspect-square overflow-hidden bg-zinc-900">
                 <Image
                   src="/talent/rammie photo.jpg"
                   alt="Rammie"
                   fill
                   className="object-cover"
-                  style={{ objectPosition: "center 35%", transform: "scale(1.15)" }}
+                  style={{ objectPosition: "center 20%", transform: "scale(1.2)" }}
                 />
               </div>
               <div className="p-6 sm:p-8">
@@ -290,13 +295,13 @@ export default function Home() {
 
             {/* Nai */}
             <div className="group overflow-hidden rounded-2xl border border-[#333] bg-zinc-950">
-              <div className="relative aspect-[3/4] overflow-hidden bg-zinc-900">
+              <div className="relative aspect-square overflow-hidden bg-zinc-900">
                 <Image
                   src="/talent/nai photo.jpg"
                   alt="Nai"
                   fill
                   className="object-cover"
-                  style={{ objectPosition: "center 15%" }}
+                  style={{ objectPosition: "center 60%", transform: "scale(1.15)" }}
                 />
               </div>
               <div className="p-6 sm:p-8">
@@ -313,79 +318,89 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Talent Roster */}
-          <div className="mt-16 sm:mt-20">
-            <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
-              Talent
-            </span>
-            <h3 className="mb-6 text-2xl font-black uppercase tracking-tight sm:mb-8 sm:text-3xl">
-              Our Roster &amp;{" "}
-              <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
-                Community
-              </span>
-            </h3>
+        </div>
+      </section>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5">
-              {[
-                { name: "Britt", src: "/talent/britt.jpg" },
-                { name: "Dae", src: "/talent/dae.jpg" },
-                { name: "Kai Ocean", src: "/talent/kai ocean.jpg" },
-                { name: "Hello Slick", src: "/talent/hello slick.jpg" },
-                { name: "Pop Misfit", src: "/talent/pop misfit.jpg", objectPos: "center center" },
-                { name: "VStar", src: "/talent/vstar.jpg" },
-                { name: "Judo", src: "/talent/judo.jpg" },
-                { name: "Jamil", src: "/talent/jamil.jpg" },
-                { name: "Nick Mateo", src: "/talent/nick mateo.jpg" },
-                { name: "Rems", src: "/talent/rems.jpg" },
-                { name: "Karen Njoki", src: "/talent/karen njoki.jpg" },
-                { name: "Kylino", src: "/talent/kylino.jpg" },
-                { name: "Miguel", src: "/talent/miguel.jpg" },
-                { name: "Rae Diamendz", src: "/talent/rae3.jpg" },
-              ].map((artist: { name: string; src: string; objectPos?: string }) => (
-                <div key={artist.name} className="group">
-                  <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-900">
-                    <Image
-                      src={artist.src}
-                      alt={artist.name}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      style={artist.objectPos ? { objectPosition: artist.objectPos } : undefined}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                      <p className="text-sm font-bold uppercase tracking-wide text-white sm:text-base">
-                        {artist.name}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-              {/* CTA tile */}
-              <a href="#contact" className="group">
-                <div className="relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-xl border border-[#333] p-5 text-center transition-colors hover:border-[#CCFF00]">
+      {/* ─── Our Artists ─── */}
+      <section id="roster" className="border-b border-[#333] px-5 py-14 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-7xl">
+          <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+            Our Artists
+          </span>
+          <h3 className="mb-6 text-2xl font-black uppercase tracking-tight sm:mb-8 sm:text-3xl">
+            Our Roster &amp;{" "}
+            <span className="font-serif italic font-normal normal-case text-[#CCFF00] text-3xl sm:text-4xl">
+              Community
+            </span>
+          </h3>
+
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 sm:gap-5">
+            {[
+              { name: "Stargirl", src: "/talent/britt.jpg", flags: ["gb"] },
+              { name: "Dae", src: "/talent/dae.jpg", flags: ["ng"] },
+              { name: "Kai Ocean", src: "/talent/kai ocean.jpg", flags: ["jp"] },
+              { name: "Hello Slick", src: "/talent/hello slick.jpg", flags: ["ie"] },
+              { name: "Pop Misfit", src: "/talent/pop misfit.jpg", objectPos: "center 20%", flags: ["pt", "jp"] },
+              { name: "VStar", src: "/talent/vstar.jpg", flags: ["it"] },
+              { name: "The Kuyas", src: "/talent/the-kuyas.png", flags: ["ph"] },
+              { name: "Lionessa", src: "/talent/lionessa.png", objectPos: "center 20%", flags: ["eg"] },
+              { name: "Starbaby", src: "/talent/starbaby.png", flags: ["ph"] },
+              { name: "Binky", src: "/talent/binky.png", flags: ["do"] },
+              { name: "Njoki Njoki", src: "/talent/karen njoki.jpg", flags: ["ke"] },
+              { name: "Kylino", src: "/talent/kylino.jpg", flags: ["ph"] },
+              { name: "El.Mig.El", src: "/talent/miguel.jpg", flags: ["hn"] },
+              { name: "Rae Diamendz", src: "/talent/rae3.jpg", flags: ["fj"] },
+            ].map((artist: { name: string; src: string; objectPos?: string; flags?: string[] }) => (
+              <div key={artist.name} className="group">
+                <div className="relative aspect-square overflow-hidden rounded-xl bg-zinc-900">
                   <Image
-                    src="/talent/community-group.jpg"
-                    alt="Pro Spin community"
+                    src={artist.src}
+                    alt={artist.name}
                     fill
-                    className="object-cover opacity-15 scale-125"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    style={artist.objectPos ? { objectPosition: artist.objectPos } : undefined}
                   />
-                  <div className="relative z-10">
-                    <p className="mb-1 font-mono text-xs uppercase tracking-widest text-zinc-400">
-                      And many more
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-black/15" />
+                  {artist.flags && (
+                    <div className="absolute top-2 left-2 z-10 flex gap-1">
+                      {artist.flags.map((code) => (
+                        <span key={code} className={`fi fi-${code} rounded-sm shadow-md`} style={{ fontSize: "1.2rem" }} />
+                      ))}
+                    </div>
+                  )}
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                    <p className="text-sm font-bold uppercase tracking-wide text-white sm:text-base">
+                      {artist.name}
                     </p>
-                    <p className="mb-3 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl">
-                      200+
-                    </p>
-                    <p className="mb-4 text-xs leading-relaxed text-zinc-400">
-                      DJs in our network
-                    </p>
-                    <span className="rounded-full bg-[#CCFF00] px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-black">
-                      See Full Roster
-                    </span>
                   </div>
                 </div>
-              </a>
-            </div>
+              </div>
+            ))}
+            {/* CTA tile */}
+            <a href="#contact" className="group">
+              <div className="relative flex aspect-square flex-col items-center justify-center overflow-hidden rounded-xl border border-[#333] p-5 text-center transition-colors hover:border-[#CCFF00]">
+                <Image
+                  src="/talent/community-group.jpg"
+                  alt="Pro Spin community"
+                  fill
+                  className="object-cover opacity-15 scale-125"
+                />
+                <div className="relative z-10">
+                  <p className="mb-1 font-mono text-xs uppercase tracking-widest text-zinc-400">
+                    And many more
+                  </p>
+                  <p className="mb-3 text-3xl font-black uppercase tracking-tight text-white sm:text-4xl">
+                    200+
+                  </p>
+                  <p className="mb-4 text-xs leading-relaxed text-zinc-400">
+                    DJs in our network
+                  </p>
+                  <span className="rounded-full bg-[#CCFF00] px-4 py-1.5 font-mono text-xs font-bold uppercase tracking-wider text-black">
+                    Get Full Roster
+                  </span>
+                </div>
+              </div>
+            </a>
           </div>
         </div>
       </section>
@@ -398,7 +413,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="mb-6 sm:mb-10">
             <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
-              How It Works
+              How We Work
             </span>
             <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl lg:text-6xl">
               <span className="font-serif italic font-normal normal-case">
@@ -678,15 +693,14 @@ export default function Home() {
         className="border-t border-[#333] px-5 py-14 sm:px-8 sm:py-24"
       >
         <div className="mx-auto max-w-7xl text-center">
-          <span className="mb-4 block font-mono text-xs text-[#CCFF00]">
-            READY?
-          </span>
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="#CCFF00" className="mx-auto mb-4"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
           <h2 className="mb-4 text-3xl font-black uppercase tracking-tight sm:mb-6 sm:text-5xl lg:text-6xl">
-            Let&apos;s{" "}
-            <span className="font-serif italic font-normal normal-case">
-              build
-            </span>{" "}
-            something
+            Connect with
+          </h2>
+          <h2 className="mb-4 text-4xl font-black uppercase tracking-tight sm:mb-6 sm:text-6xl lg:text-7xl">
+            <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
+              our community
+            </span>
           </h2>
           <p className="mb-8 text-sm text-zinc-500 sm:mb-10 sm:text-base">
             One point of contact. One invoice. Zero risk.
@@ -695,7 +709,7 @@ export default function Home() {
             href="mailto:team@prospin.agency"
             className="inline-block bg-[#CCFF00] px-8 py-3 font-mono text-sm font-bold uppercase tracking-wider text-black transition-opacity hover:opacity-80 sm:px-10 sm:py-4"
           >
-            Get In Touch
+            Let&apos;s Talk
           </a>
         </div>
       </section>
@@ -703,16 +717,12 @@ export default function Home() {
       {/* ─── Footer ─── */}
       <footer className="border-t border-[#333] px-5 py-6 sm:px-8 sm:py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 sm:flex-row">
-          <div className="flex items-center gap-3">
-            <Image
-              src="/prospin-logo.png"
-              alt="Pro Spin Agency"
-              width={24}
-              height={24}
-              className="h-5 w-5"
-            />
-            <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
-              Pro Spin Agency
+          <div className="flex items-center">
+            <span className="text-sm font-black uppercase tracking-tight">
+              Pro Spin{" "}
+              <span className="font-serif italic font-normal normal-case text-[#CCFF00]">
+                Agency
+              </span>
             </span>
           </div>
           <span className="font-mono text-[10px] text-zinc-700">
