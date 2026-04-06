@@ -10,22 +10,22 @@ import { useEffect, useRef } from "react";
  * Vibe: Sporty + Fun + Professional + Worldly
  */
 
-const logos: { src: string; alt: string; color: "white" | "black"; mobileClass?: string }[] = [
-  { src: "/logos/nike.png", alt: "Nike", color: "white" },
-  { src: "/logos/adidas.png", alt: "Adidas", color: "black" },
-  { src: "/logos/puma.png", alt: "Puma", color: "black" },
+const logos: { src: string; alt: string; color: "white" | "black"; mobileClass?: string; textBelow?: string }[] = [
+  // { src: "/logos/nike.png", alt: "Nike", color: "white" },
+  { src: "/logos/red-bull.png", alt: "Red Bull", color: "white", mobileClass: "h-12 sm:h-16" },
+  // { src: "/logos/puma.png", alt: "Puma", color: "black" },
   { src: "/logos/arcteryx.png", alt: "Arc'teryx", color: "black", mobileClass: "h-12 sm:h-16" },
   { src: "/logos/jd-sports.png", alt: "JD Sports", color: "black", mobileClass: "h-12 sm:h-16" },
   { src: "/logos/lululemon.png", alt: "Lululemon", color: "white", mobileClass: "h-12 sm:h-16" },
-  { src: "/logos/aritzia.png", alt: "Aritzia", color: "black" },
-  { src: "/logos/red-bull.png", alt: "Red Bull", color: "white", mobileClass: "h-12 sm:h-16" },
+  { src: "/logos/aritzia.png", alt: "Aritzia", color: "black", mobileClass: "h-12 sm:h-14" },
+  { src: "/logos/adidas.png", alt: "Adidas", color: "black", mobileClass: "h-8 sm:h-10" },
   { src: "/logos/prophecy.png", alt: "Prophecy", color: "white", mobileClass: "h-14 sm:h-20" },
   { src: "/logos/chambar.png", alt: "Chambar", color: "white", mobileClass: "h-12 sm:h-16" },
   { src: "/logos/ted.png", alt: "TED", color: "white", mobileClass: "h-7 sm:h-9" },
-  { src: "/logos/loveland.png", alt: "Nemesis Coffee", color: "white", mobileClass: "h-7 sm:h-12" },
+  { src: "/logos/loveland.png", alt: "Nemesis Coffee", color: "white", mobileClass: "h-5 sm:h-8", textBelow: "nemesis." },
   { src: "/logos/meo.png", alt: "MEO Chinatown", color: "white", mobileClass: "h-8 sm:h-12" },
   { src: "/logos/the-kent.png", alt: "The Kent", color: "white", mobileClass: "h-8 sm:h-12" },
-  { src: "/logos/city-of-vancouver.png", alt: "City of Vancouver", color: "white" },
+  { src: "/logos/city-of-vancouver.png", alt: "City of Vancouver", color: "white", mobileClass: "h-12 sm:h-14" },
 ];
 
 const caseStudies = [
@@ -84,21 +84,21 @@ const caseStudies = [
     tags: ["Sporting Event", "Family-Friendly", "Live Energy"],
   },
   {
-    brand: "Nike / Adidas / Puma / JD Sports",
-    title: "Big Four Sport Activations",
-    subtitle: "Booked DJs for product launches and store activations across Nike, Adidas, Puma, and JD Sports",
-    stat: "4 Brands",
-    challenge: "Every brand has its own sonic DNA. Nike wants innovation energy. Adidas wants street culture. Puma wants trend-forward. JD Sports wants street-to-sport crossover.",
+    brand: "Adidas x JD Sports",
+    title: "Sourcing DJs for Pop-Ups at JD with Adidas",
+    subtitle: "Sourced and booked DJs for two Adidas pop-ups at JD Sports",
+    stat: "2 Pop-Ups",
+    challenge: "The sound had to hit two audiences at once — street enough for the kids, clean and relatable enough for the parents shopping with them. Every track needed to feel current without crossing any lines.",
     bullets: [
-      "Product launches, store activations, and brand events across all four",
-      "Each brand with unique sonic requirements and strict brand guidelines",
-      "Shifted between four different brand identities — delivered at standard every time",
-      "Current, clean, high-energy — always on-brand",
+      "Sourced DJs who could deliver a street sound while keeping it family-friendly",
+      "Music curated to connect with both younger shoppers and the adults with them",
+      "Two pop-up activations with consistent brand-safe energy throughout",
+      "Clean, current, and on-brand — no compromise on vibe or guidelines",
     ],
     takeaway: "When sponsor activations need DJs who understand brand-safe execution, this is the proof.",
     images: ["/case-studies/jd-sports.avif"],
-    logos: ["/logos/nike.png", "/logos/adidas.png", "/logos/puma.png", "/logos/jd-sports.png"],
-    tags: ["Retail", "Brand Launch", "Multi-Brand"],
+    logos: ["/logos/adidas.png", "/logos/jd-sports.png"],
+    tags: ["Retail", "Pop-Up", "Family-Friendly"],
   },
   {
     brand: "Restaurantour",
@@ -161,7 +161,7 @@ export default function Home() {
               href="#work"
               className="hidden font-mono text-xs uppercase tracking-wider text-zinc-500 transition-colors hover:text-white sm:block"
             >
-              Work
+              Recent Projects
             </a>
             <a
               href="#contact"
@@ -222,7 +222,7 @@ export default function Home() {
                 href="#work"
                 className="border border-[#333] px-6 py-3 font-mono text-xs uppercase tracking-wider text-zinc-400 transition-colors hover:border-white hover:text-white sm:px-8"
               >
-                See Work
+                Recent Projects
               </a>
             </div>
           </div>
@@ -236,17 +236,24 @@ export default function Home() {
         </p>
         <div className="mx-auto grid max-w-6xl grid-cols-3 items-center justify-items-center gap-y-8 gap-x-6 sm:grid-cols-5 sm:gap-y-10 sm:gap-x-20">
           {logos.map((logo) => (
-            <div key={logo.alt} className={`flex w-full items-center justify-center ${logo.mobileClass ?? "h-10 sm:h-12"}`}>
-              <Image
-                src={logo.src}
-                alt={logo.alt}
-                width={120}
-                height={48}
-                unoptimized
-                className={`max-h-full max-w-full object-contain opacity-80 transition-opacity hover:opacity-100 ${
-                  logo.color === "black" ? "invert" : ""
-                }`}
-              />
+            <div key={logo.alt} className={`flex w-full flex-col items-center justify-center gap-1 ${logo.mobileClass ?? "h-10 sm:h-12"} ${logo.textBelow ? "!h-auto" : ""}`}>
+              <div className={`flex items-center justify-center ${logo.mobileClass ?? "h-10 sm:h-12"}`}>
+                <Image
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={120}
+                  height={48}
+                  unoptimized
+                  className={`max-h-full max-w-full object-contain opacity-80 transition-opacity hover:opacity-100 ${
+                    logo.color === "black" ? "invert" : ""
+                  }`}
+                />
+              </div>
+              {logo.textBelow && (
+                <span className="text-[10px] tracking-[0.15em] text-white/80 sm:text-xs" style={{ fontFamily: "var(--font-baskerville)" }}>
+                  {logo.textBelow}
+                </span>
+              )}
             </div>
           ))}
         </div>
@@ -290,7 +297,7 @@ export default function Home() {
                   Rammie
                 </h3>
                 <p className="text-sm leading-relaxed text-zinc-400">
-                  One of Vancouver&apos;s founding DJs with millions of views on YouTube. Rammie has played at festivals like Basscoast and built the DJ community that Pro Spin draws from — connecting hundreds of DJs across the city and placing them at events for Nike, Adidas, Lululemon, Red Bull, and more. A global-sounds DJ who plays across cultures and understands how to curate the right moment for any crowd.
+                  One of Vancouver&apos;s founding DJs with millions of views on YouTube. Rammie has played at festivals like Basscoast and built the DJ community that Pro Spin draws from — connecting hundreds of DJs across the city and placing them at events for Adidas, Lululemon, Red Bull, and more. A global-sounds DJ who plays across cultures and understands how to curate the right moment for any crowd.
                 </p>
               </div>
             </div>
@@ -401,6 +408,123 @@ export default function Home() {
                 </div>
               </div>
             </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Portfolio ─── */}
+      <section id="work" className="border-b border-[#333] px-5 py-14 sm:px-8 sm:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-10 flex items-baseline justify-between sm:mb-16">
+            <div>
+              <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
+                Case Studies
+              </span>
+              <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl">
+                <span className="font-serif italic font-normal normal-case text-4xl sm:text-6xl">
+                  Recent
+                </span>
+                <span className="inline-block w-3 sm:w-4" />Success Stories
+              </h2>
+            </div>
+            <span className="font-mono text-xs text-zinc-600">
+              {caseStudies.length} PROJECTS
+            </span>
+          </div>
+          <div className="space-y-8 sm:space-y-10">
+            {caseStudies.map((study, i) => (
+              <div
+                key={study.brand}
+                className="overflow-hidden rounded-2xl border border-[#333] bg-zinc-950"
+              >
+                {/* Card layout — alternates direction on desktop */}
+                <div className={`lg:flex ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
+                  {/* Image(s) side */}
+                  <div className="relative lg:w-1/2">
+                    {/* Single or multi-image grid */}
+                    {study.images.length > 1 ? (
+                      <div className="grid h-72 grid-cols-1 gap-0.5 sm:h-72 sm:grid-cols-2 lg:h-full lg:min-h-[360px]">
+                        {study.images.map((img: string, j: number) => (
+                          <div key={img} className="relative min-h-[140px]">
+                            <Image src={img} alt={`${study.brand} ${j + 1}`} fill className="object-cover" />
+                          </div>
+                        ))}
+                      </div>
+                    ) : (
+                      <div className="relative h-48 sm:h-72 lg:h-full lg:min-h-[360px]">
+                        <Image
+                          src={study.images[0]}
+                          alt={study.brand}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content side */}
+                  <div className="flex flex-col justify-center p-6 sm:p-8 lg:w-1/2 lg:p-10">
+                    {/* Logo(s) */}
+                    <div className="mb-4 flex items-center gap-3">
+                      {study.logo ? (
+                        <Image
+                          src={study.logo}
+                          alt={study.brand}
+                          width={48}
+                          height={48}
+                          unoptimized
+                          className="h-12 w-auto max-w-[120px] object-contain brightness-0 invert sm:h-14"
+                        />
+                      ) : study.logos ? (
+                        study.logos.map((logo: string) => (
+                          <Image
+                            key={logo}
+                            src={logo}
+                            alt=""
+                            width={48}
+                            height={48}
+                            unoptimized
+                            className="h-7 w-auto max-w-[80px] object-contain brightness-0 invert sm:h-8"
+                          />
+                        ))
+                      ) : null}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="mb-1 text-xl font-bold uppercase tracking-tight sm:text-2xl">
+                      {study.title}
+                    </h3>
+
+                    {/* Subtitle */}
+                    <p className="mb-4 text-sm text-[#CCFF00]/70">
+                      {study.subtitle}
+                    </p>
+
+                    {/* Challenge */}
+                    <p className="mb-4 text-sm leading-relaxed text-zinc-300">
+                      {study.challenge}
+                    </p>
+
+                    {/* Bullet points */}
+                    <ul className="mb-4 space-y-2">
+                      {study.bullets.map((bullet: string) => (
+                        <li key={bullet} className="flex items-start gap-2 text-sm text-zinc-400">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#CCFF00]" />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Takeaway */}
+                    <div className="rounded-lg border border-[#CCFF00]/20 bg-[#CCFF00]/5 px-4 py-3">
+                      <p className="text-sm font-medium text-[#CCFF00]/90">
+                        {study.takeaway}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -566,123 +690,6 @@ export default function Home() {
                   </p>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Portfolio ─── */}
-      <section id="work" className="px-5 py-14 sm:px-8 sm:py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10 flex items-baseline justify-between sm:mb-16">
-            <div>
-              <span className="mb-3 block font-mono text-xs uppercase tracking-widest text-[#CCFF00]">
-                Case Studies
-              </span>
-              <h2 className="text-3xl font-black uppercase tracking-tight sm:text-5xl">
-                <span className="font-serif italic font-normal normal-case text-4xl sm:text-6xl">
-                  Recent
-                </span>
-                <span className="inline-block w-3 sm:w-4" />Success Stories
-              </h2>
-            </div>
-            <span className="font-mono text-xs text-zinc-600">
-              {caseStudies.length} PROJECTS
-            </span>
-          </div>
-          <div className="space-y-8 sm:space-y-10">
-            {caseStudies.map((study, i) => (
-              <div
-                key={study.brand}
-                className="overflow-hidden rounded-2xl border border-[#333] bg-zinc-950"
-              >
-                {/* Card layout — alternates direction on desktop */}
-                <div className={`lg:flex ${i % 2 === 1 ? "lg:flex-row-reverse" : ""}`}>
-                  {/* Image(s) side */}
-                  <div className="relative lg:w-1/2">
-                    {/* Single or multi-image grid */}
-                    {study.images.length > 1 ? (
-                      <div className="grid h-72 grid-cols-1 gap-0.5 sm:h-72 sm:grid-cols-2 lg:h-full lg:min-h-[360px]">
-                        {study.images.map((img: string, j: number) => (
-                          <div key={img} className="relative min-h-[140px]">
-                            <Image src={img} alt={`${study.brand} ${j + 1}`} fill className="object-cover" />
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="relative h-48 sm:h-72 lg:h-full lg:min-h-[360px]">
-                        <Image
-                          src={study.images[0]}
-                          alt={study.brand}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content side */}
-                  <div className="flex flex-col justify-center p-6 sm:p-8 lg:w-1/2 lg:p-10">
-                    {/* Logo(s) */}
-                    <div className="mb-4 flex items-center gap-3">
-                      {study.logo ? (
-                        <Image
-                          src={study.logo}
-                          alt={study.brand}
-                          width={48}
-                          height={48}
-                          unoptimized
-                          className="h-12 w-auto max-w-[120px] object-contain brightness-0 invert sm:h-14"
-                        />
-                      ) : study.logos ? (
-                        study.logos.map((logo: string) => (
-                          <Image
-                            key={logo}
-                            src={logo}
-                            alt=""
-                            width={48}
-                            height={48}
-                            unoptimized
-                            className="h-7 w-auto max-w-[80px] object-contain brightness-0 invert sm:h-8"
-                          />
-                        ))
-                      ) : null}
-                    </div>
-
-                    {/* Title */}
-                    <h3 className="mb-1 text-xl font-bold uppercase tracking-tight sm:text-2xl">
-                      {study.title}
-                    </h3>
-
-                    {/* Subtitle */}
-                    <p className="mb-4 text-sm text-[#CCFF00]/70">
-                      {study.subtitle}
-                    </p>
-
-                    {/* Challenge */}
-                    <p className="mb-4 text-sm leading-relaxed text-zinc-300">
-                      {study.challenge}
-                    </p>
-
-                    {/* Bullet points */}
-                    <ul className="mb-4 space-y-2">
-                      {study.bullets.map((bullet: string) => (
-                        <li key={bullet} className="flex items-start gap-2 text-sm text-zinc-400">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-[#CCFF00]" />
-                          {bullet}
-                        </li>
-                      ))}
-                    </ul>
-
-                    {/* Takeaway */}
-                    <div className="rounded-lg border border-[#CCFF00]/20 bg-[#CCFF00]/5 px-4 py-3">
-                      <p className="text-sm font-medium text-[#CCFF00]/90">
-                        {study.takeaway}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
