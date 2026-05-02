@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local-only asset archive (old hero videos, etc.)
+/public/archive/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
